@@ -1,0 +1,26 @@
+@import "../../../variables.scss";
+
+.input-button-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 1px 4px rgba(0, 52, 112, 0.15);
+  background-color: #0077ff;
+  height: 40px;
+  padding: 0px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  color: #fff;
+  font-size: 14px;
+  font-family: $lato-regular;
+  display: flex;
+  flex: 1;
+  margin: 10px 0px;
+
+  &.raised-button-disabled {
+    background-color: rgba(97, 137, 245, 0.3);
+    pointer-events: none;
+  }
+}

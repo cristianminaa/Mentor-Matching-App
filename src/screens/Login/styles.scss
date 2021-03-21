@@ -1,0 +1,53 @@
+@import "../../variables.scss";
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login-container-inner {
+    @include large-shadow;
+    height: 100%;
+    width: 30%;
+    max-width: 480px;
+    max-height: 480px;
+    border-radius: 10px;
+    padding: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    .login-image-logo {
+      margin: 0 auto;
+      width: 100%;
+      min-height: 150px;
+      background-image: url(../../assets/logo.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .input-text-container,
+    .input-text {
+      flex: 1;
+    }
+    .input-button-container {
+      font-size: 16px;
+    }
+    .additional {
+      display: flex;
+      justify-content: center;
+      a {
+        margin: 0 20px;
+        color: #000;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      width: 50%;
+      @media screen and (max-width: 425px) {
+        width: 80%;
+      }
+    }
+  }
+}

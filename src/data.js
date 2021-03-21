@@ -1,0 +1,50 @@
+export const usersData = [
+  { email: "d", password: "d" },
+  {
+    fullName: "Danail Todorov",
+    email: "danail@fdm.com",
+    password: "1234",
+    personalEmail: "danail@gmail.com",
+    phoneNumber: "+44888888888",
+    position: "",
+    location: "",
+    dateOfBirth: "",
+    roles: [""],
+    skills: [""],
+    toImprove: [""],
+    interests: [""],
+    registrationDate: "",
+  },
+]
+
+export const categoriesData = [
+  { value: "teamwork", label: "Teamwork" },
+  {
+    value: "conflictResolution",
+    label: "Conflict resolution",
+    isSubcategory: true,
+  },
+  { value: "communication", label: "Communication" },
+  { value: "customerService", label: "Customer service", isSubcategory: true },
+  { value: "problemSolving", label: "Problem solving" },
+  {
+    value: "criticalThinking",
+    label: "Critical thinking",
+    isSubcategory: true,
+  },
+  { value: "proactiveness", label: "Proactiveness", isSubcategory: true },
+  { value: "timeManagement", label: "Time management" },
+  { value: "interpersonalSkills", label: "Interpersonal skills" },
+  { value: "settingGoals", label: "Setting goals", isSubcategory: true },
+  {
+    value: "acceptingFeedback",
+    label: "Accepting feedback",
+    isSubcategory: true,
+  },
+  { value: "flexibility", label: "Flexibility", isSubcategory: true },
+  { value: "leadership", label: "Leadership", isSubcategory: true },
+  { value: "listening", label: "Listening", isSubcategory: true },
+  { value: "patience", label: "Patience", isSubcategory: true },
+  { value: "writing", label: "Writing" },
+  { value: "organisation", label: "Organisation" },
+]

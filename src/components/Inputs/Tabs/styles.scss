@@ -1,0 +1,24 @@
+@import "../../../variables.scss";
+
+.input-container-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  .option {
+    padding: 10px 20px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: $lato-regular;
+    transition: all 0.3s ease-out;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+    &.active {
+      background: #0077ff;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import "../../variables.scss";
+
+.register-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .register-container-inner {
+    @include large-shadow;
+    height: auto;
+    width: 30%;
+    max-width: 480px;
+    // max-height: 480px;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    .register-image-logo {
+      margin: 0 auto;
+      width: 100%;
+      min-height: 150px;
+      background-image: url(../../assets/logo.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      .input-text-container:first-child {
+        padding-right: 5%;
+      }
+      &.no-padding .input-text-container:first-child {
+        padding-right: 0;
+      }
+    }
+    .react-datepicker-wrapper {
+      height: 35px;
+      border-radius: 6px;
+      margin: 10px 0px;
+      border: 1px solid rgba(0, 52, 112, 0.3);
+      font-family: $lato-regular;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      input {
+        outline: none;
+        border: none;
+        &::placeholder {
+          font-family: $lato-regular;
+          font-size: 13px;
+          padding-left: 10px;
+        }
+      }
+    }
+    .input-text-container,
+    .input-text-input {
+      flex: 1;
+      font-size: 12px;
+    }
+    .input-button-container {
+      font-size: 16px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .text-button {
+      cursor: pointer;
+      font-family: $lato-bold;
+      font-size: 16px;
+    }
+    .additional {
+      display: flex;
+      justify-content: center;
+      a {
+        margin: 0 20px;
+        color: #000;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      width: 50%;
+      @media screen and (max-width: 425px) {
+        width: 80%;
+      }
+    }
+  }
+}

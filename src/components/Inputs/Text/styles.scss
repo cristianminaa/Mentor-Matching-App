@@ -1,0 +1,28 @@
+@import "../../../variables.scss";
+
+.input-text-container {
+  position: relative;
+  .input-text {
+    border-radius: 6px;
+    padding: 9px 11px;
+    margin: 10px 0px;
+    border: 1px solid rgba(0, 52, 112, 0.3);
+    font-family: $lato-regular;
+    font-size: 13px;
+    width: 100%;
+  }
+  .icon {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    height: 100%;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../../../assets/eye-closed.svg);
+    &.password {
+      background-image: url(../../../assets/eye.svg);
+    }
+  }
+}
