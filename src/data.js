@@ -34,7 +34,7 @@ export const categoriesData = [
   },
   { value: "proactiveness", label: "Proactiveness", isSubcategory: true },
   { value: "timeManagement", label: "Time management" },
-  { value: "interpersonalSkills", label: "Interpersonal skills" },
+  { value: "interpersonalSkills", label: "Innpm terpersonal skills" },
   { value: "settingGoals", label: "Setting goals", isSubcategory: true },
   {
     value: "acceptingFeedback",
