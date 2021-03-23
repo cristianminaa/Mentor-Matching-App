@@ -12,6 +12,22 @@ const Home = () => {
     return userDetails
   }
 
-  return <>{displayUser(currentUser)}</>
+  return (
+    <>
+      <div class="wrapper">
+        <div>
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile-Image"/>
+        </div>
+        <div class="searchbar">
+          <img class="search-icon" src="https://static.thenounproject.com/png/101791-200.png" />
+          <input placeholder="Search" type="text" class="search" />
+        </div>
+        <div className="msg">
+          <img height="30" src="https://www.flaticon.com/svg/vstatic/svg/1370/1370907.svg?token=exp=1616539867~hmac=9908b51de53e904e39c0e4456d40d79c" alt="Messenger free icon"/>
+        </div>
+      </div>
+      {displayUser(currentUser)}
+    </>
+  )
 }
 export default Home
