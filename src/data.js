@@ -1,11 +1,12 @@
 export const usersData = [
-  { email: "d", password: "d" },
+  { email: "d", password: "d", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
     fullName: "Danail Todorov",
     email: "danail@fdm.com",
     password: "1234",
     personalEmail: "danail@gmail.com",
     phoneNumber: "+44888888888",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -16,13 +17,14 @@ export const usersData = [
     registrationDate: "",
   },
 
-  { email: "j", password: "j" },
+  { email: "j", password: "j", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
     fullName: "Jay Patel",
     email: "jay@fdm.com",
     password: "1234",
     personalEmail: "jay@gmail.com",
     phoneNumber: "+44888888888",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -33,13 +35,14 @@ export const usersData = [
     registrationDate: "",
   },
 
-  { email: "c", password: "c" },
+  { email: "c", password: "c", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
     fullName: "Cristian Mina",
     email: "cristian@fdm.com",
     password: "1234",
     personalEmail: "cristian@gmail.com",
     phoneNumber: "+44888888888",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -49,14 +52,13 @@ export const usersData = [
     interests: [""],
     registrationDate: "",
   },
-
-{ email: "d", password: "d" },
   {
     fullName: "Dennis Grigoryev",
     email: "dennis@fdm.com",
     password: "1234",
     personalEmail: "dennis@gmail.com",
     phoneNumber: "+44888888888",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -67,13 +69,14 @@ export const usersData = [
     registrationDate: "",
   },
 
-  { email: "m", password: "m" },
+  { email: "m", password: "m", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
     fullName: "Miles Richards",
     email: "miles@fdm.com",
     password: "1234",
     personalEmail: "miles@gmail.com",
     phoneNumber: "+44888888888",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",

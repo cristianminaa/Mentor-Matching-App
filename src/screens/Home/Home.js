@@ -16,7 +16,8 @@ const Home = () => {
     <>
       <div className="wrapper">
         <div className="profilePic">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/>
+          {console.log(currentUser)}
+          <img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
         </div>
         <div className="searchbar">
           <img class="search-icon" src="https://static.thenounproject.com/png/101791-200.png" alt="" />
