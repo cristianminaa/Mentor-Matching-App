@@ -1,3 +1,8 @@
+body {
+  margin-top: 20px;
+  background: #f3f3f3;
+}
+
 .wrapper {
   position: relative;
   display: flex;
@@ -6,14 +11,12 @@
   min-width: 100px;
   margin-top: 20px;
   border-bottom: 2px solid black;
-}
-
-.msg {
-  
+  margin-bottom: 20px;
 }
 
 .searchbar {
   position: relative;
+  vertical-align: middle;
 }
 
 .search {
@@ -39,7 +42,13 @@
   background-color: white;
 }
 
-body {
+.profile {
+  position: relative;
+  border-radius: 1rem;
+  width: 80%;
+  background-color:rgba($color: #85d1f0, $alpha: 0.35);
+  margin: 0 auto;
+  align-items: center;
+  padding: 10px 25px 10px 20px;
   margin-top: 20px;
-  background: #f3f3f3;
 }
