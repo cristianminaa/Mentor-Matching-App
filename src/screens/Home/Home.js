@@ -7,8 +7,18 @@ const Home = () => {
 
   const displayUser = (user) => {
     const userDetails = []
-    for (const [key, value] of Object.entries(user))
+    let i=0
+    for (const [key, value] of Object.entries(user)) {
+      //Prints user information but does not print variable with link to profile picture
+      //Skips the variable that holds the user's password for security
+      i++
+      if(i>Object.entries(user).length-1) {
+        break
+      } else if(key=="password") {
+        continue
+      }
       userDetails.push(<p>{`${key}: ${value}`}</p>)
+    }
     return userDetails
   }
 
@@ -16,7 +26,6 @@ const Home = () => {
     <>
       <div className="wrapper">
         <div className="profilePic">
-          {console.log(currentUser)}
           <img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
         </div>
         <div className="searchbar">

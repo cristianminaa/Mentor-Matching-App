@@ -24,7 +24,6 @@ export const usersData = [
     password: "1234",
     personalEmail: "jay@gmail.com",
     phoneNumber: "+44888888888",
-    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -33,6 +32,7 @@ export const usersData = [
     toImprove: [""],
     interests: [""],
     registrationDate: "",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },
 
   { email: "c", password: "c", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
@@ -42,7 +42,6 @@ export const usersData = [
     password: "1234",
     personalEmail: "cristian@gmail.com",
     phoneNumber: "+44888888888",
-    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -51,6 +50,7 @@ export const usersData = [
     toImprove: [""],
     interests: [""],
     registrationDate: "",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },
   {
     fullName: "Dennis Grigoryev",
@@ -58,7 +58,6 @@ export const usersData = [
     password: "1234",
     personalEmail: "dennis@gmail.com",
     phoneNumber: "+44888888888",
-    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -67,6 +66,7 @@ export const usersData = [
     toImprove: [""],
     interests: [""],
     registrationDate: "",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },
 
   { email: "m", password: "m", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
@@ -76,7 +76,6 @@ export const usersData = [
     password: "1234",
     personalEmail: "miles@gmail.com",
     phoneNumber: "+44888888888",
-    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
     position: "",
     location: "",
     dateOfBirth: "",
@@ -85,6 +84,7 @@ export const usersData = [
     toImprove: [""],
     interests: [""],
     registrationDate: "",
+    profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },
 ]
 
