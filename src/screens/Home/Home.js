@@ -4,13 +4,12 @@ import "./styles.scss"
 
 const Home = () => {
   const { currentUser } = useSelector((state) => state.users)
-
   const displayUser = (user) => {
     const userDetails = []
     let i=0
     for (const [key, value] of Object.entries(user)) {
       //Prints user information but does not print variable with link to profile picture
-      //Skips the variable that holds the user's password for security
+      //Skips the variable that holds the user's password for s
       i++
       if(i>Object.entries(user).length-1) {
         break
