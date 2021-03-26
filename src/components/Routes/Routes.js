@@ -6,7 +6,7 @@ import { Header } from "../"
 import { history } from "../../redux/store"
 
 const PrivateRoute = ({ children, ...rest }) => {
-  return (
+  return ( 
     <Route
       render={({ location }) =>
         isAuthenticated() ? (
