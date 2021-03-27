@@ -28,7 +28,7 @@ export const usersData = [
     location: "",
     dateOfBirth: "",
     roles: [""],
-    skills: [""],
+    skills: ["Java","Python","Web Development","Retail/Sales"],
     toImprove: [""],
     interests: [""],
     registrationDate: "",
