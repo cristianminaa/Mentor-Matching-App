@@ -27,6 +27,10 @@ const Home = () => {
         <div className="profilePic">
           <a href="/profile"><img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/></a>
         </div>
+        <div className="searchbar">
+          <img className="search-icon" src="https://static.thenounproject.com/png/101791-200.png" alt="" />
+          <input placeholder="Search" type="text" className="search" />
+        </div>
         <div className="msg">
           <img height="30" src="http://cdn.onlinewebfonts.com/svg/img_397748.png" alt="Messenger free icon"/>
         </div>
