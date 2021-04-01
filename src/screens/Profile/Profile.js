@@ -9,7 +9,8 @@ const Profile = () =>{
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+      <link rel="preconnect" href="https://fonts.gstatic.com"/>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"></link>
       <div className="wrapper">
         <div className="profilePic">
           <a href="/home"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/></a>
@@ -19,7 +20,7 @@ const Profile = () =>{
         </div>
       </div>
       <div className="container emp-profile">
-        <form method="post">
+        <form method="#">
           <div className="row">
             <div className="col-md-4 bg-white">
               <div className="profile-img">
@@ -41,7 +42,7 @@ const Profile = () =>{
                   </div>
                 </div>
                 <div className="col-md-5">
-                  <input type="#" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                  <input type="submit" href="#main" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
                 </div>
               </div>
               <div className="row top-bar">
@@ -63,79 +64,55 @@ const Profile = () =>{
                 {currentUser.skills[4]}<br/> */}
               </div>
             </div>
-            <div className="col-md-8 main-info">
-              <div className="" >
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Work Email:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.email}</p>
-                  </div>
+            <div className="col-md-8 main-info" id="main">
+              <div class="form-group">
+                <label class="col-lg-3 control-label">First name:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value={currentUser.fullName}/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Name:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.fullName}</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Last name:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value={currentUser.fullName}/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Personal Email:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.personalEmail}</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Position:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value={currentUser.position}/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Phone:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.phoneNumber}</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Personal Email:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value={currentUser.personalEmail}/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Position:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.position}</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Username:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="text" value={currentUser.email}/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Location:</label>
-                  </div>
-                  <div className="col-sm-6">
-                      <p>{currentUser.location}</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Password:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="password" value={currentUser.password}/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Date Of Birth:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.dateOfBirth}</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Confirm password:</label>
+                <div class="col-lg-9">
+                  <input class="form-control" type="password" value=""/>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Roles:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>{currentUser.roles}</p>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <label>Password:</label>
-                  </div>
-                  <div className="col-sm-6">
-                    <p>**************</p>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label"></label>
+                <div class="col-lg-9">
+                  <input type="submit" class="btn btn-primary" value="Save Changes"/>
+                  <span></span>
+                  <input type="reset" class="btn btn-default" value="Cancel"/>
                 </div>
               </div>
             </div>
