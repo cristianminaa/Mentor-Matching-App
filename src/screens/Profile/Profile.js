@@ -9,38 +9,46 @@ const Profile = () =>{
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
       <div className="wrapper">
         <div className="profilePic">
-          <a href="/home"><img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/></a>
+          <a href="/home"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/></a>
         </div>
-        
         <div className="msg">
-          <img height="30" src="http://cdn.onlinewebfonts.com/svg/img_397748.png" alt="Messenger free icon"/>
+          <img height="30" src="src\images\message.png" alt="Messenger free icon"/>
         </div>
       </div>
       <div className="container emp-profile">
         <form method="post">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-4 bg-white">
               <div className="profile-img">
-                <img src={currentUser.profilePicture} alt=""/>
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
                 <div className="upload-btn" onClick={()=>{document.getElementById('file-btn').click()}}>Change Picture</div><br/>
                   <input id="file-btn" type='file' /><br/>
               </div>
             </div>
-            <div className="col-md-5">
-              <div className="profile-head">
-                <h5>
-                  {currentUser.fullName}
-                </h5>
-                <h6>
-                  {currentUser.position}
-                </h6>
-                <p className="proile-rating">RANKINGS : <span>8/10</span></p>
+            <div className="col-md-8">
+              <div className="row top-bar">
+                <div className="col-md-7">
+                  <div className="profile-head">
+                    <h5>
+                      {currentUser.fullName}
+                    </h5>
+                    <h6>
+                      {currentUser.position}
+                    </h6>
+                  </div>
+                </div>
+                <div className="col-md-5">
+                  <input type="#" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                </div>
               </div>
-            </div>
-            <div className="col-md-3">
-              <input type="#" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+              <div className="row top-bar">
+                <div className="col-md-12">
+                  hi
+                </div>
+              </div>
             </div>
           </div>
           <div className="row">
@@ -55,86 +63,80 @@ const Profile = () =>{
                 {currentUser.skills[4]}<br/> */}
               </div>
             </div>
-            <div className="col-md-8">
-              <div className="tab-content profile-tab" id="myTabContent">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Work Email</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{currentUser.email}</p>
-                    </div>
+            <div className="col-md-8 main-info">
+              <div className="" >
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Work Email:</label>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Name</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{currentUser.fullName}</p>
-                    </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.email}</p>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Personal Email</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{currentUser.personalEmail}</p>
-                    </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Name:</label>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Phone</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{currentUser.phoneNumber}</p>
-                    </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.fullName}</p>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Profession</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>{currentUser.position}</p>
-                    </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Personal Email:</label>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Experience</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>Expert</p>
-                    </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.personalEmail}</p>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Total Projects</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>230</p>
-                    </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Phone:</label>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>English Level</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>Expert</p>
-                    </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.phoneNumber}</p>
                   </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Availability</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>6 months</p>
-                    </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Position:</label>
                   </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <label>Your Bio</label><br/>
-                      <p>Your detail description</p>
-                    </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.position}</p>
                   </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Location:</label>
+                  </div>
+                  <div className="col-sm-6">
+                      <p>{currentUser.location}</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Date Of Birth:</label>
+                  </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.dateOfBirth}</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Roles:</label>
+                  </div>
+                  <div className="col-sm-6">
+                    <p>{currentUser.roles}</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <label>Password:</label>
+                  </div>
+                  <div className="col-sm-6">
+                    <p>**************</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

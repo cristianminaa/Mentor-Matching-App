@@ -32,7 +32,7 @@ const Home = () => {
           <input placeholder="Search" type="text" className="search" />
         </div>
         <div className="msg">
-          <img height="30" src="http://cdn.onlinewebfonts.com/svg/img_397748.png" alt="Messenger free icon"/>
+          <img height="30" src="/images/message.png" alt="Messenger free icon"/>
         </div>
       </div>
       <div className="profile">
