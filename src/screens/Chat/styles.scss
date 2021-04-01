@@ -1,30 +1,70 @@
+$spaceLeft : 19rem;
+
 .containerChat{
     width: 100%;
     height: 100%;
-    background-color: red;
-    display: flex;
+    position:relative;
 }
 .navbarTop{
-    width: 40%;
-    height: 100%;
+    width: 100%;
+    height: 5rem;
     background-color: green;
-    display: flex;
+    display: block;
 }
 .conversationsMenuLeft{
-    width: 40%;
-    height: 100%;
-    background-color: orange;
-    display: flex;
+    width: $spaceLeft;
+    height: 47rem;
+    background-color: rgb(255, 145, 0);
+    position: absolute;
+    bottom: 5rem;
+    top: 5rem;
 }
 .main{
-    width: 40%;
-    height: 100%;
-    background-color: beige;
-    display: flex;
+    width: 80rem;
+    height: 43rem;
+    background-color: rgb(118, 146, 146);
+    position: absolute;
+    left: $spaceLeft;
+
 }
 .barBottom{
-    width: 40%;
-    height: 100%;
+    width: 80rem;
+    height: 10rem;
     background-color: blue;
-    display: flex;
+    position: absolute;
+    left: $spaceLeft;
+    top:42rem;
+}
+
+.buttonSend{
+    position: absolute;
+    bottom: 1rem;
+}
+
+footer{
+    width: 99rem;
+    height: 3rem;
+    background-color: red;
+    position: absolute;
+    top: 52rem;
+}
+
+.containerConversation{
+    background-color: white;
+    height: 5rem;
+    position: relative;
+    img{
+        height:35%;
+        width:35%;
+        position: relative;
+        top: 1.5rem;
+        left: 0;
+    }
+    p{
+        position: absolute;
+        left: 7rem;
+        top: 0.9rem;
+    }
+
+
 }
