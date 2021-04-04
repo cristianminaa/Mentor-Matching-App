@@ -35,7 +35,7 @@ const Home = () => {
           <input placeholder="Search" type="text" className="search" />
         </div>
         <div className="msg">
-          <img height="30" src="/images/message.png" alt="Messenger free icon"/>
+          <NavLink to="/Chat"><img height="30" src="/images/message.png" alt="Messenger free icon"/></NavLink>
         </div>
       </div>
       <div className="profile">

@@ -1,6 +1,8 @@
 export const usersData = [
   { email: "d", password: "d", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
+    firstName: "Danail",
+    lastName: "Todorov",
     fullName: "Danail Todorov",
     email: "danail@fdm.com",
     password: "1234",
@@ -19,6 +21,8 @@ export const usersData = [
 
   { email: "j", password: "j", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
+    firstName: "Jay",
+    lastName: "Patel",
     fullName: "Jay Patel",
     email: "jay@fdm.com",
     password: "1234",
@@ -37,6 +41,8 @@ export const usersData = [
 
   { email: "c", password: "c", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
+    firstName: "Cristian",
+    lastName: "Mina",
     fullName: "Cristian Mina",
     email: "cristian@fdm.com",
     password: "1234",
@@ -53,6 +59,8 @@ export const usersData = [
     profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },
   {
+    firstName: "Dennis",
+    lastName: "Grigoryev",
     fullName: "Dennis Grigoryev",
     email: "dennis@fdm.com",
     password: "1234",
@@ -71,6 +79,8 @@ export const usersData = [
 
   { email: "m", password: "m", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
+    firstName: "Miles",
+    lastName: "Richards",
     fullName: "Miles Richards",
     email: "miles@fdm.com",
     password: "1234",
