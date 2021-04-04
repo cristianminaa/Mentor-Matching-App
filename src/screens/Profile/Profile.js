@@ -17,6 +17,10 @@ const Profile = () =>{
       }
     }
 
+    const UploadButtonClicked=()=>{
+      document.getElementById('file-btn').click()
+    }
+
     return (
     <>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
@@ -38,7 +42,7 @@ const Profile = () =>{
             <div className="col-md-4 bg-white">
               <div className="profile-img">
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
-                <div className="upload-btn" onClick={()=>{document.getElementById('file-btn').click()}}>Change Picture</div><br/>
+                <div className="upload-btn" onClick={()=>UploadButtonClicked()}>Change Picture</div><br/>
                   <input id="file-btn" type='file' /><br/>
               </div>
             </div>
