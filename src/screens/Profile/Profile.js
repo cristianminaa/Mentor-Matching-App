@@ -2,10 +2,10 @@ import React from "react"
 import { Inputs } from "../../components"
 import { useSelector } from "react-redux"
 import "./styles.scss"
+import { NavLink } from "react-router-dom"
 
 const Profile = () =>{
     const { currentUser } = useSelector((state) => state.users)
-
     const SubmitButtonCLicked=()=>{
       // alert('Form has been submitted');
       document.getElementById("profile-form").submit();
@@ -28,7 +28,7 @@ const Profile = () =>{
       {/* <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> */}
       <div className="wrapper">
         <div className="profilePic">
-          <a href="/home"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/></a>
+          <NavLink to="/"><img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/></NavLink>
         </div>
         <div className="msg">
           <img height="30" src="src\images\message.png" alt="Messenger free icon"/>
@@ -74,11 +74,11 @@ const Profile = () =>{
               <div className="profile-work">
                 <p>SKILLS</p>
                 {/* instead of calling each element, just map it later */}
-                {/* {currentUser.skills[0]}<br/>
+                {currentUser.skills[0]}<br/>
                 {currentUser.skills[1]}<br/>
                 {currentUser.skills[2]}<br/>
                 {currentUser.skills[3]}<br/>
-                {currentUser.skills[4]}<br/> */}
+                {currentUser.skills[4]}<br/>
               </div>
             </div>
             <div className="col-md-8 main-info" id="main">

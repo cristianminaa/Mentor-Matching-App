@@ -1,6 +1,8 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import "./styles.scss"
+import { NavLink } from "react-router-dom"
+
 
 const Home = () => {
   const { currentUser } = useSelector((state) => state.users)
@@ -25,7 +27,8 @@ const Home = () => {
     <>
       <div className="wrapper">
         <div className="profilePic">
-          <a href="/profile"><img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/></a>
+          <NavLink to="/profile"><img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/></NavLink>
+          {/* <a href="/profile"><img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/></a> */}
         </div>
         <div className="searchbar">
           <img className="search-icon" src="https://static.thenounproject.com/png/101791-200.png" alt="" />
