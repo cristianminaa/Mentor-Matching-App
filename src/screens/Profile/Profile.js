@@ -24,10 +24,8 @@ const Profile = () =>{
     return (
     <>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <link rel="preconnect" href="https://fonts.gstatic.com"/>
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"></link>
+      {/* <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> */}
+      {/* <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> */}
       <div className="wrapper">
         <div className="profilePic">
           <a href="/home"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/></a>
@@ -42,7 +40,7 @@ const Profile = () =>{
             <div className="col-md-4 bg-white">
               <div className="profile-img">
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
-                <div className="upload-btn" onClick={()=>UploadButtonClicked()}>Change Picture</div><br/>
+                <div className="upload-btn" onClick={()=>UploadButtonClicked()}>Change Picture</div>
                   <input id="file-btn" type='file' /><br/>
               </div>
             </div>
