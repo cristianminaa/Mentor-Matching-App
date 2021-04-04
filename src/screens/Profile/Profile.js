@@ -1,9 +1,22 @@
 import React from "react"
+import { Inputs } from "../../components"
 import { useSelector } from "react-redux"
 import "./styles.scss"
 
 const Profile = () =>{
     const { currentUser } = useSelector((state) => state.users)
+
+    const SubmitButtonCLicked=()=>{
+      // alert('Form has been submitted');
+      document.getElementById("profile-form").submit();
+    }
+
+    const ResetButtonCLicked=()=>{
+      if(window.confirm("Click ok to reset changes")) {
+        document.getElementById("profile-form").reset();
+      }
+    }
+
     return (
     <>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
@@ -20,7 +33,7 @@ const Profile = () =>{
         </div>
       </div>
       <div className="container emp-profile">
-        <form method="#">
+        <form method="#" id="profile-form">
           <div className="row">
             <div className="col-md-4 bg-white">
               <div className="profile-img">
@@ -31,8 +44,9 @@ const Profile = () =>{
             </div>
             <div className="col-md-8">
               <div className="row top-bar">
-                <div className="col-md-7">
+                <div className="col-md-12">
                   <div className="profile-head">
+                    Name and position here
                     <h5>
                       {currentUser.fullName}
                     </h5>
@@ -41,13 +55,14 @@ const Profile = () =>{
                     </h6>
                   </div>
                 </div>
-                <div className="col-md-5">
-                  <input type="submit" href="#main" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                </div>
+                
               </div>
               <div className="row top-bar">
-                <div className="col-md-12">
-                  hi
+                <div className="col-md-6">
+                  Current number Mentor(s) : {currentUser.mentors}
+                </div>
+                <div className="col-md-6">
+                  Current number Mentee(s) : {currentUser.mentees}
                 </div>
               </div>
             </div>
@@ -66,54 +81,79 @@ const Profile = () =>{
             </div>
             <div className="col-md-8 main-info" id="main">
               <div class="form-group">
-                <label class="col-lg-3 control-label">First name:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" value={currentUser.fullName}/>
-                </div>
+                <label>First name:</label>
+                  <Inputs.Text
+                    type="text"
+                    inputClassName="form-control"
+                    value={currentUser.fullName}
+                    placeholder="First name:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Last name:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" value={currentUser.fullName}/>
-                </div>
+                <label>Last name:</label>
+                  <Inputs.Text
+                    type="text"
+                    inputClassName="form-control"
+                    value={currentUser.fullName}
+                    placeholder="Last name:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Position:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" value={currentUser.position}/>
-                </div>
+                <label>Position:</label>
+                  <Inputs.Text
+                    type="text"
+                    inputClassName="form-control"
+                    value={currentUser.position}
+                    placeholder="Position:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Personal Email:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" value={currentUser.personalEmail}/>
-                </div>
+                <label>Personal Email:</label>
+                  <Inputs.Text
+                    type="text"
+                    inputClassName="form-control"
+                    value={currentUser.personalEmail}
+                    placeholder="Personal Email:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Username:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="text" value={currentUser.email}/>
-                </div>
+                <label>Username:</label>
+                  <Inputs.Text
+                    type="text"
+                    inputClassName="form-control"
+                    value={currentUser.email}
+                    placeholder="Username:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Password:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="password" value={currentUser.password}/>
-                </div>
+                <label>Password:</label>
+                  <Inputs.Text
+                    type="password"
+                    inputClassName="form-control"
+                    value={currentUser.password}
+                    placeholder="Password:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Confirm password:</label>
-                <div class="col-lg-9">
-                  <input class="form-control" type="password" value=""/>
-                </div>
+                <label>Confirm password:</label>
+                  <Inputs.Text
+                    type="password"
+                    inputClassName="form-control"
+                    placeholder="Password:"
+                  />
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label"></label>
-                <div class="col-lg-9">
-                  <input type="submit" class="btn btn-primary" value="Save Changes"/>
-                  <span></span>
-                  <input type="reset" class="btn btn-default" value="Cancel"/>
-                </div>
+                <Inputs.Button 
+                  text="Save Changes"
+                  className="profile-edit-btn"
+                  onClick={()=> SubmitButtonCLicked()}
+                />
+                <span></span>
+                <Inputs.Button 
+                  text="Cancel"
+                  className="profile-edit-btn"
+                  onClick={()=> ResetButtonCLicked()}
+                />
               </div>
             </div>
           </div>
