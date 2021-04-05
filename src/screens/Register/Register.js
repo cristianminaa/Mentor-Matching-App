@@ -28,6 +28,7 @@ const Register = () => {
         ...user,
         registrationDate: new Date(),
         interests: user?.interests?.split(", "),
+        profilePicture: "",
       })
     )
 
@@ -142,11 +143,11 @@ const Register = () => {
                 />
                 {user?.roles?.includes("mentor") && (
                   <Inputs.Text
-                    value={user?.maxNumberOfMantees || ""}
+                    value={user?.maxNumberOfMentees || ""}
                     onChange={({ target: { value } }) =>
-                      handleChange("maxNumberOfMantees", value)
+                      handleChange("maxNumberOfMentees", value)
                     }
-                    className="maxNumberOfMantees"
+                    className="maxNumberOfMentees"
                     placeholder="Max number of mentees: "
                   />
                 )}
@@ -172,14 +173,15 @@ const Register = () => {
                   onChange={(value) => handleChange("toImprove", value)}
                   placeholder="Categories for improvement:"
                 />
-              ) : (
+              ):""}
+              {user?.roles?.includes("mentee") ? (
                 <Inputs.DropdownSelect
                   defaultValue={user?.skills || []}
                   options={categoriesData}
                   onChange={(value) => handleChange("skills", value)}
                   placeholder="Skill to provide:"
                 />
-              )}
+              ):""}
 
               <Inputs.Textarea
                 value={user?.interests || ""}
