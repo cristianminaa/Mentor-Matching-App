@@ -2,10 +2,13 @@
 
 .input-container-tabs {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px 0;
+  width: inherit;
   .option {
+    flex-grow: 1;
     padding: 10px 20px;
     border: 1px solid gray;
     border-radius: 6px;
@@ -13,12 +16,10 @@
     font-size: 14px;
     font-family: $lato-regular;
     transition: all 0.3s ease-out;
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
     &.active {
-      background: #0077ff;
+      background: #1daded;
       color: #fff;
     }
+    margin: 2px;
   }
 }

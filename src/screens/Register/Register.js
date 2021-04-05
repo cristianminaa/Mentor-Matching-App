@@ -181,7 +181,6 @@ const Register = () => {
                   placeholder="Skill to provide:"
                 />
               )}
-
               <Inputs.Textarea
                 value={user?.interests || ""}
                 onChange={({ target: { value } }) =>

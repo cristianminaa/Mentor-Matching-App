@@ -9,7 +9,7 @@
   .register-container-inner {
     @include large-shadow;
     height: auto;
-    width: 30%;
+    width: 50%;
     max-width: 480px;
     // max-height: 480px;
     border-radius: 10px;
@@ -83,7 +83,7 @@
     }
     @media screen and (max-width: 768px) {
       width: 50%;
-      @media screen and (max-width: 425px) {
+      @media screen and (max-width: 480px) {
         width: 80%;
       }
     }

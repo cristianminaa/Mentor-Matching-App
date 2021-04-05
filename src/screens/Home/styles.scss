@@ -1,7 +1,7 @@
 .wrapper {
   background-color: #202025;
   padding-top: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 5npmpx;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -10,8 +10,8 @@
 :root {
   --rad: 0.7rem;
   --dur: 0.3s;
-  --color-light: #fff;
-  --color-brand: #57bd84;
+  --color-light: ghostwhite;
+  --color-brand: #1daded;
   --font-fam: "Lato", sans-serif;
   --height: 100%;
   --btn-width: 3rem;
@@ -29,7 +29,7 @@
     height: var(--height);
     font-family: var(--font-fam);
     border: 0;
-    color: var(--color-dark);
+    color: var(--color-light);
     font-size: 1rem;
   }
   input[type="search"] {
@@ -62,4 +62,32 @@
       display: block;
     }
   }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.profileCard {
+  border-radius: 1rem;
+  width: 80%;
+  background-color: rgba(ghostwhite, 0.35);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 10px 25px 10px 20px;
+  margin-top: 20px;
+  p{
+    margin: 0;
+  }
+}
+
+.profileCard:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  background-color: #202025;
+  color: white;
 }

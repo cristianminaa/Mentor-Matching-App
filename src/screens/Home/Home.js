@@ -23,6 +23,41 @@ const Home = () => {
     return userDetails
   }
 
+   const DisplayProfileCard = () =>{
+    return(
+      <>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>  
+        <div className="row profileCard">
+          <div className="col-md-3">
+            {
+              currentUser.profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/> 
+              : <img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
+            }
+          </div>
+          <div className="col-md-4">
+            <h4>{currentUser.fullName}</h4>
+            <h6>{currentUser.position}</h6>
+            <p>{currentUser.location}</p>
+          </div>
+        </div>
+
+        <div className="row profileCard">
+          <div className="col-md-3">
+            {
+              currentUser.profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/> 
+              : <img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
+            }
+          </div>
+          <div className="col-md-4">
+            <h4>{currentUser.fullName}</h4>
+            <h6>{currentUser.position}</h6>
+            <p>{currentUser.location}</p>
+          </div>
+        </div>
+      </>
+    )
+   }
+
   return (
     <>
       <div className="wrapper">
@@ -48,8 +83,7 @@ const Home = () => {
         </div>
       </div>
       <div className="profile">
-        <h3>Personal Details</h3>
-        {displayUser(currentUser)}
+        {DisplayProfileCard()}
       </div>
     </>
   )

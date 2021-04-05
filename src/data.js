@@ -29,7 +29,7 @@ export const usersData = [
     personalEmail: "jay@gmail.com",
     phoneNumber: "+44888888888",
     position: "Student",
-    location: "",
+    location: "London",
     dateOfBirth: "",
     roles: ["mentee","mentor"],
     mentees: 2,
