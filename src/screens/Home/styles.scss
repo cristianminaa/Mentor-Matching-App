@@ -1,6 +1,10 @@
 .wrapper {
   background-color: #202025;
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 :root {
@@ -34,13 +38,14 @@
     background: var(--color-light);
     padding: 0 1.6rem;
     border-radius: var(--rad);
-    appearance: none; 
+    appearance: none;
     transition: all var(--dur) var(--bez);
     transition-property: width, border-radius;
     z-index: 1;
     position: relative;
   }
   button {
+    cursor: pointer;
     display: none;
     position: absolute;
     top: 0;
@@ -58,4 +63,3 @@
     }
   }
 }
-

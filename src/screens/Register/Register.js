@@ -28,7 +28,7 @@ const Register = () => {
         ...user,
         registrationDate: new Date(),
         interests: user?.interests?.split(", "),
-        profilePicture: "",
+        profilePicture: ""
       })
     )
 
@@ -173,15 +173,14 @@ const Register = () => {
                   onChange={(value) => handleChange("toImprove", value)}
                   placeholder="Categories for improvement:"
                 />
-              ):""}
-              {user?.roles?.includes("mentee") ? (
+              ) : (
                 <Inputs.DropdownSelect
                   defaultValue={user?.skills || []}
                   options={categoriesData}
                   onChange={(value) => handleChange("skills", value)}
                   placeholder="Skill to provide:"
                 />
-              ):""}
+              )}
 
               <Inputs.Textarea
                 value={user?.interests || ""}

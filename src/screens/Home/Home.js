@@ -34,11 +34,7 @@ const Home = () => {
             }
           </NavLink>
         </div>
-        {/* <div className="searchbar">
-          <img className="search-icon" src="https://static.thenounproject.com/png/101791-200.png" alt="" />
-          <input placeholder="Search" type="text" className="search" />
-        </div> */}
-        <form onsubmit="event.preventDefault();" role="search" id="searchForm">
+        <form role="search" id="searchForm">
           <input id="search" type="search" placeholder="Search..." autofocus required />
           <button type="submit">Go</button>    
         </form>
@@ -54,15 +50,6 @@ const Home = () => {
       <div className="profile">
         <h3>Personal Details</h3>
         {displayUser(currentUser)}
-      </div>
-      <div className="profile">
-        <p><h3>Categories</h3></p>
-        <p>Tag A</p>
-        <p>Tag B</p>
-        <p>Tag C</p>
-        <p>Tag D</p>
-        <p>Tag E</p>
-        <p>Tag F</p>
       </div>
     </>
   )
