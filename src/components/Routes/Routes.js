@@ -1,7 +1,7 @@
 import React from "react"
 import { Router, Route, Switch, Redirect, withRouter } from "react-router-dom"
 import { isAuthenticated } from "../../utilities"
-import { Home, Login, Register, FAQ, Profile, Chat } from "../../screens"
+import { Home, Login, Register, FAQ, Profile, Chat, Support } from "../../screens"
 import { Header } from "../"
 import { history } from "../../redux/store"
 
@@ -41,6 +41,7 @@ const Routes = () => {
         <PrivateRoute exact path="/Chat" component={Chat} />
         <PrivateRoute exact path="/" component={Home} />
         <Route exact path="/faq" component={FAQ} />
+        <Route exact path="/support" component={Support} />
       </Switch>
     </Router>
   )
