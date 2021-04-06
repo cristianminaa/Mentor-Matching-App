@@ -1,0 +1,73 @@
+body {
+  margin-top: 20px;
+  background: #f3f3f3;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  min-width: 100px;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.searchbar {
+  position: relative;
+  vertical-align: middle;
+}
+
+.search {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 25px;
+  width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: #f5f5f5;
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 14px;
+}
+
+.search:hover,
+.search:focus {
+  border: 1px solid #009688;
+  background-color: white;
+}
+
+.login {
+  position: relative;
+  border-radius: 1rem;
+  width: 6.2%;
+  background-color:rgba($color: #85d1f0, $alpha: 0.35);
+  margin: 0 auto;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  margin-top: 0px;
+}
+
+.faqHeader {
+  align-items: center;
+  align-content: center;
+}
+
+.supportTicket {
+  align-items: center;
+  align-content: center;
+}
+
+.help {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 5px 60px;
+  border-radius: 5px;
+  margin: 5px 0px;
+  align-self: center;
+}

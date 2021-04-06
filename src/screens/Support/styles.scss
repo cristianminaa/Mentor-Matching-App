@@ -1,0 +1,14 @@
+body {
+  margin-top: 20px;
+  background: #f3f3f3;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  min-width: 100px;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+}
