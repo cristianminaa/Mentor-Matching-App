@@ -1,6 +1,7 @@
 body {
-  margin-top: 20px;
+  margin: auto;
   background: #f3f3f3;
+  vertical-align: auto;
 }
 
 .wrapper {
@@ -8,6 +9,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-content: center;
+  vertical-align: auto;
   min-width: 100px;
   border-bottom: 2px solid black;
   margin-bottom: 20px;
