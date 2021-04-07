@@ -2,6 +2,7 @@ import React from "react"
 import { TextField } from 'react-md'
 import { NavLink } from "react-router-dom"
 import "./styles.scss"
+import Swal from "sweetalert2"
 
 const support = () => {
     
@@ -36,14 +37,19 @@ const support = () => {
                 placeholder="Describe your problem in detail. We need these to help you!"
                 className="md-cell md-cell--bottom"
             />
-            <button className="submit" onClick={buttonClick}>Submit</button>
+            
+            <NavLink to="/faq"><button className="submit" onClick={buttonClick}>Submit</button></NavLink>
+            
         </div>
     )
 }
 
 function buttonClick() {
     return (
-        <h1>SUCCESS!</h1>
+        Swal.fire({
+            icon: "success",
+            text: "Success!",
+        })
     )
 }
 

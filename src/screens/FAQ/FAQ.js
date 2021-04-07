@@ -18,11 +18,9 @@ const FAQ = () => {
   return (
     <>
       <div className="wrapper">
-        <div className="login">
-          <NavLink to="/">
-            <img src="https://surveymonkey-assets.s3.amazonaws.com/survey/182409455/e1ca79ba-8544-401a-b369-7cd97429a630.png" style={{ height: 60, width: 100 }} alt="Login" />
-          </NavLink>
-        </div>
+        <NavLink to="/">
+          <img src="https://surveymonkey-assets.s3.amazonaws.com/survey/182409455/e1ca79ba-8544-401a-b369-7cd97429a630.png" style={{ height: 60, width: 100 }} alt="Login" />
+        </NavLink>
       </div>
       <div className="mainContent">
         <div className="faqHeader">
