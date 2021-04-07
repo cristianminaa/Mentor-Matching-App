@@ -43,11 +43,6 @@ const Home = () => {
     return(
       <>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>  
-        <div className="filterBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#202025" class="bi bi-filter-square-fill" viewBox="0 0 16 16">
-            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
-          </svg>
-        </div>
         <div className="row profileCard" >
           <div className="profileCardContent">
             {
@@ -138,6 +133,16 @@ const Home = () => {
             </svg>
           </NavLink>
         </div>
+      </div>
+      <div className="filter">
+        <svg id="filterIcon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#202025" class="bi bi-filter-square-fill" viewBox="0 0 16 16">
+          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+        <select className="filterOption" id="menteeMentorFilter">
+          <option>All</option>
+          <option>Mentee</option>
+          <option>Mentor</option>
+        </select>
       </div>
       <div className="profile">
         {DisplayProfileCard()}
