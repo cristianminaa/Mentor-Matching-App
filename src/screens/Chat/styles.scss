@@ -6,10 +6,18 @@ $spaceLeft : 19rem;
     position:relative;
 }
 .navbarTop{
-    width: 100%;
+    width: 100rem;
     height: 5rem;
-    background-color: green;
+    background-color: black;
     display: block;
+    position: relative;
+
+    hr{
+        position: absolute;
+        top: 4rem;
+        width: 100%;
+        background-color: red;
+    }
 }
 .conversationsMenuLeft{
     width: $spaceLeft;
@@ -22,7 +30,7 @@ $spaceLeft : 19rem;
 .main{
     width: 80rem;
     height: 43rem;
-    background-color: rgb(118, 146, 146);
+    background-color: f3f3f3;
     position: absolute;
     left: $spaceLeft;
 
@@ -30,7 +38,7 @@ $spaceLeft : 19rem;
 .barBottom{
     width: 80rem;
     height: 10rem;
-    background-color: blue;
+    background-color: grey;
     position: absolute;
     left: $spaceLeft;
     top:42rem;
@@ -39,6 +47,8 @@ $spaceLeft : 19rem;
 .buttonSend{
     position: absolute;
     bottom: 1rem;
+    left: 30rem;
+    width: 15rem;
 }
 
 footer{
@@ -65,6 +75,4 @@ footer{
         left: 7rem;
         top: 0.9rem;
     }
-
-
 }

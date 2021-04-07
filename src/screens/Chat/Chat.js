@@ -22,7 +22,9 @@ const Chat = () => {
       </div>
       <nav className="navbarTop">
         <p>navbarTop</p>
+        <hr></hr>
       </nav>
+      
       <div className="main">
         {chat?.map(({ message, senderIsNotMe }, i) => (
           <p key={`message-${i}`} className={senderIsNotMe ? "right" : "left"}>
