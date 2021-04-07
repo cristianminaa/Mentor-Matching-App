@@ -35,7 +35,7 @@ export const usersData = [
     mentees: 2,
     mentors: 1,
     maxNumberOfMentees: 3,
-    skills: ["Java","Python","Web Development","Retail/Sales"],
+    skills: ["Java","Python","Web Development","Retail/Sales","Java","Python","Web Development","Retail/Sales"],
     toImprove: [""],
     interests: [""],
     registrationDate: "",
