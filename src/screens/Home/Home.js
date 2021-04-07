@@ -29,7 +29,7 @@ const Home = () => {
 
   }
 
-  const mentorReuqestUser=()=>{
+  const mentorRequestUser=()=>{
     
   }
 
@@ -74,10 +74,9 @@ const Home = () => {
             <Inputs.Button 
               text="Request Mentorship"
               className="mentorshipBtn"
-              onClick={()=>{mentorReuqestUser()}}
+              onClick={()=>{mentorRequestUser()}}
             />
-          </div>
-          
+          </div>        
         </div>
 
         <div className="row profileCard">
