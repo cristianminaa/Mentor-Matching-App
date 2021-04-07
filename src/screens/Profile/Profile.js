@@ -36,6 +36,7 @@ const Profile = () =>{
       {/* <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> */}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></link>
       <div className="wrapper">
+        
         <div className="profilePic">
           <NavLink to="/">
             <svg xmlns="http://www.w3.org/2000/svg" height="50" fill="ghostwhite" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
@@ -43,7 +44,9 @@ const Profile = () =>{
             </svg> 
           </NavLink>
         </div>
-        
+        <NavLink to="/">
+          <img src="https://surveymonkey-assets.s3.amazonaws.com/survey/182409455/e1ca79ba-8544-401a-b369-7cd97429a630.png" style={{ height: 60, width: 100 }} alt="Login" />
+        </NavLink>
         <div className="msg">
           <NavLink to="/Chat">
             <svg xmlns="http://www.w3.org/2000/svg" height="50" fill="ghostwhite" class="bi bi-chat-text" viewBox="0 0 16 16">
