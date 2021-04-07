@@ -1,60 +1,61 @@
-$spaceLeft : 19rem;
+//$spaceLeft : 10%;
 
 .containerChat{
     width: 100%;
     height: 100%;
-    position:relative;
+    position: relative;
+    align-items: center;
 }
 .navbarTop{
-    width: 100rem;
-    height: 5rem;
-    background-color: black;
-    display: block;
-    position: relative;
-
-    hr{
-        position: absolute;
-        top: 4rem;
-        width: 100%;
-        background-color: red;
-    }
+    background-color: #202025;
+    padding-top: 10px;
+    padding-bottom: 5npmpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 .conversationsMenuLeft{
-    width: $spaceLeft;
-    height: 47rem;
-    background-color: rgb(255, 145, 0);
+    width: 19rem;
+    height: 1505%;
+    background-color:rgb(209, 206, 206);
     position: absolute;
     bottom: 5rem;
-    top: 5rem;
+    top: 3.1rem;
+    left: 7%;
+    h6{
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        //font-weight: bold;
+        padding: 5%;
+    }
 }
 .main{
-    width: 80rem;
-    height: 43rem;
+    width: 50%;
+    height: 40rem;
     background-color: f3f3f3;
     position: absolute;
-    left: $spaceLeft;
+    //left: 19rem;
 
 }
 .barBottom{
-    width: 80rem;
+    width: 50%;
     height: 10rem;
-    background-color: grey;
     position: absolute;
-    left: $spaceLeft;
-    top:42rem;
+    //left: 19rem;
+    top:40.1rem;
+    justify-content: center;
+    .textArea{
+        width: 90%;
+    }
 }
-
 .buttonSend{
-    position: absolute;
-    bottom: 1rem;
-    left: 30rem;
-    width: 15rem;
+    width:5rem;
 }
 
 footer{
     width: 99rem;
     height: 3rem;
-    background-color: red;
+    background-color: white;
     position: absolute;
     top: 52rem;
 }
@@ -71,8 +72,6 @@ footer{
         left: 0;
     }
     p{
-        position: absolute;
-        left: 7rem;
-        top: 0.9rem;
+        margin-left: 45%;
     }
 }
