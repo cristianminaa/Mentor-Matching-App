@@ -1,7 +1,7 @@
 .wrapper {
   background-color: #202025;
   padding-top: 10px;
-  padding-bottom: 5npmpx;
+  padding-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -119,15 +119,19 @@
 .filter {
   width: 100%;
   background-color: #1daded;
-  height: 10vh;
-}
-
-.filter {
+  // height: 70px;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 50px;
 }
 
-#menteeMentorFilter{
-  height: 100%;
+.filterOption {
+  flex-grow: 1;
+  select {
+    border-radius: 1rem;
+    padding: 5px;
+    outline: none;
+  }
 }

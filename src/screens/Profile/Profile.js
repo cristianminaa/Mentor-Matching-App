@@ -16,13 +16,42 @@ const Profile = () =>{
       } else {
         // document.getElementById("profile-form").submit();
         Swal.fire({ icon: "success", title: "Changes saved!" })
+        Swal.fire({
+          title: 'Do you want to save the changes?',
+          showCancelButton: true,
+          confirmButtonText: `Save`,
+          confirmButtonColor: '#1daded',
+          cancelButtonColor: '#d33',
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire('Saved!', '', 'success')
+          } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+          }
+        })
       }
     }
 
     const ResetButtonCLicked=()=>{
-      if(window.confirm("Click ok to reset changes")) {
-        document.getElementById("profile-form").reset();
-      }
+      Swal.fire({
+        title: 'Are you sure you want to cancel the changes?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: `Go back`,
+        confirmButtonColor: '#1daded',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your changes have been deleted.',
+            'success'
+          )
+        }
+      })
     }
 
     const UploadButtonClicked=()=>{
@@ -32,11 +61,11 @@ const Profile = () =>{
     return (
     <>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-      {/* <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> */}
-      {/* <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> */}
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></link>
-      <div className="wrapper">
-        
+      
+      <div className="wrapper">  
         <div className="profilePic">
           <NavLink to="/">
             <svg xmlns="http://www.w3.org/2000/svg" height="50" fill="ghostwhite" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
