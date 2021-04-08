@@ -25,7 +25,20 @@ const Chat = () => {
         <div className="inner d-flex justify-content-center">
       <div className="conversationsMenuLeft border border-dark">
         <h6 className="text-white bg-primary">Conversations</h6>
+        <div className="scrollableConversations">
         <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        <Conversation />
+        </div>
       </div>
       
       <div className="main border border-dark">

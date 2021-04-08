@@ -15,7 +15,7 @@
     justify-content: space-around;
 }
 .conversationsMenuLeft{
-    width: 19rem;
+    width: 18%;//19rem
     height: 1505%;
     background-color:rgb(209, 206, 206);
     position: absolute;
@@ -35,6 +35,7 @@
     background-color: f3f3f3;
     position: absolute;
     //left: 19rem;
+    border-radius: 0px 20px;
 
 }
 .barBottom{
@@ -44,6 +45,7 @@
     //left: 19rem;
     top:40.1rem;
     justify-content: center;
+    border-radius: 0px 0px 20px 0px;
     .textArea{
         width: 90%;
     }
@@ -64,6 +66,8 @@ footer{
     background-color: white;
     height: 5rem;
     position: relative;
+    border-radius: 10px;
+    margin-top: 0.5%;
     img{
         height:35%;
         width:35%;
@@ -74,4 +78,11 @@ footer{
     p{
         margin-left: 45%;
     }
+}
+.containerConversation:hover{
+    background-color: rgb(121, 121, 255);
+}
+.scrollableConversations{
+    overflow-y: scroll;
+    height: 90%;
 }
