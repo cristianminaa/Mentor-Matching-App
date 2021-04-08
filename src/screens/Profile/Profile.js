@@ -94,7 +94,7 @@ const Profile = () =>{
                   <div className="profile-img">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
                     <div className="upload-btn" onClick={()=>UploadButtonClicked()}>Change Picture</div>
-                      <input id="file-btn" type='file' /><br/>
+                    <input id="file-btn" type='file' /><br/>
                   </div>
                 </div>
                 <div className="col-md-8 intro">
@@ -239,6 +239,23 @@ const Profile = () =>{
             </form>
           </div>
         </div>
+        {/* <div className="row">
+          <div className="col-md-12 connectionsAndMentorships">
+            {currentUser.roles.length>1?(
+              <div className="manageRoles">
+                <Inputs.DropdownSelect
+                  options={[
+                    {label: "Mentee"},
+                    {label: "Mentor"},
+                    {label: "Mentee and Mentor"}
+                  ]}
+                  onChange={(value) => handleChange("roles", value)}
+                  placeholder="Mentee and Mentor"
+                />
+              </div>
+            ):""}
+          </div>
+        </div> */}
         <div className="row">
           <div className="col-md-12 FAQ">
             <NavLink to="/faq">

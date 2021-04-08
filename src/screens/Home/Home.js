@@ -62,16 +62,16 @@ const Home = () => {
           <div className="profileCardContent">
             <h1></h1>
             <h6>Roles:</h6>
-            {currentUser.roles.map((role) => <li>{role}</li>)}
+            {currentUser.roles.map((role, i) => <li key={i}>{role}</li>)}
           </div>
           <div className="catagories">
             <div className="profileCardContent">
               <h6>Skills:</h6>
-              {currentUser.skills.map((skill) => <li>{skill}</li>)}
+              {currentUser.skills.map((skill, i) => <li key={i}>{skill}</li>)}
             </div>
             <div className="profileCardContent">
               <h6>To Improve:</h6>
-              {currentUser.toImprove.map((toImprove) => <li>{toImprove}</li>)}
+              {currentUser.toImprove.map((toImprove, i) => <li key={i}>{toImprove}</li>)}
             </div>
           </div>
           <div className="connectAndMentorBtn">
