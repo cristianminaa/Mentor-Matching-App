@@ -4,61 +4,169 @@ import { useSelector } from "react-redux"
 import "./styles.scss"
 import { NavLink } from "react-router-dom"
 import { categoriesData } from "../../data"
+import { usersData } from "../../data"
 import Swal from "sweetalert2"
 
 const Profile = () =>{
-    const { currentUser } = useSelector((state) => state.users)
-    const [user, setUser] = useState({})
-    const handleChange = (field, value) => setUser({ ...user, [field]: value })
-    const SubmitButtonCLicked=()=>{
-      if(document.getElementById("mainPass").value !== document.getElementById("confirmPass").value) {
-        Swal.fire({ icon: "error", title: "Password does not match!" })
-      } else {
-        // document.getElementById("profile-form").submit();
-        Swal.fire({ icon: "success", title: "Changes saved!" })
-        Swal.fire({
-          title: 'Do you want to save the changes?',
-          showCancelButton: true,
-          confirmButtonText: `Save`,
-          confirmButtonColor: '#1daded',
-          cancelButtonColor: '#d33',
-        }).then((result) => {
-          /* Read more about isConfirmed, isDenied below */
-          if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
-          } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
-          }
-        })
-      }
-    }
-
-    const ResetButtonCLicked=()=>{
+  const { currentUser } = useSelector((state) => state.users)
+  const [user, setUser] = useState({})
+  const handleChange = (field, value) => setUser({ ...user, [field]: value })
+  
+  const SubmitButtonClicked=()=>{
+    if(document.getElementById("mainPass").value !== document.getElementById("confirmPass").value) {
+      Swal.fire({ icon: "error", title: "Password does not match!" })
+    } else {
+      // document.getElementById("profile-form").submit();
       Swal.fire({
-        title: 'Are you sure you want to cancel the changes?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
+        title: 'Do you want to save the changes?',
         showCancelButton: true,
-        cancelButtonText: `Go back`,
+        confirmButtonText: `Save`,
         confirmButtonColor: '#1daded',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your changes have been deleted.',
-            'success'
-          )
+          Swal.fire('Saved!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
         }
       })
     }
+  }
 
-    const UploadButtonClicked=()=>{
-      document.getElementById('file-btn').click()
-    }
+  const ResetButtonClicked=()=>{
+    Swal.fire({
+      title: 'Are you sure you want to cancel the changes?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: `Go back`,
+      confirmButtonColor: '#1daded',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your changes have been deleted.',
+          'success'
+        )
+      }
+    })
+  }
 
-    return (
+  const UploadButtonClicked=()=>{
+    document.getElementById('file-btn').click()
+  }
+
+  const deleteEditCard=(i)=>{
+    Swal.fire({
+      title: 'Do you want to remove this user?',
+      showCancelButton: true,
+      confirmButtonText: `Yes`,
+      confirmButtonColor: '#1daded',
+      cancelButtonColor: '#d33',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('User Deleted!', '', 'success')
+        document.getElementById(`editCard-${i}`).style.display="none";
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
+  }
+
+  const editCardClicked=(users)=>{
+    return(
+      <>
+        <div className="editMentors">
+          <h6 className="editTitle">Manage Mentors</h6>
+          <div className="scrollableMentors">
+            {
+              users?.map(({fullName, position, location, profilePicture, roles}, i) => {
+                var idVal = `editCard-${i}`
+                if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
+                  return(
+                    <div className="row profileCard editCard" key={i} id={idVal} onClick={()=>deleteEditCard(i)}>
+                      <div className="profileCardContent">
+                        {
+                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                          : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
+                        }
+                      </div>
+                      <div className="profileCardContent">
+                        <h4>{fullName}</h4>
+                        <h6>{position}</h6>
+                        <p>{location}</p>
+                      </div>
+                    </div>
+                  )
+                }
+              })
+            }
+          </div>
+        </div>
+
+        <div className="editMentees">
+          <h6 className="editTitle">Manage Mentees</h6>
+          <div className="scrollableMentees">
+            {
+              users?.map(({fullName, position, location, profilePicture, roles}, i) => {
+                var idVal = `editCard-${i}`
+                if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentee")) {
+                  return(
+                    <div className="row profileCard editCard" key={i} id={idVal} onClick={()=>deleteEditCard(i)}>
+                      <div className="profileCardContent">
+                        {
+                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                          : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
+                        }
+                      </div>
+                      <div className="profileCardContent">
+                        <h4>{fullName}</h4>
+                        <h6>{position}</h6>
+                        <p>{location}</p>
+                      </div>
+                    </div>
+                  )
+                }
+              })
+            }
+          </div>
+        </div>
+        
+        <div className="editConnections">
+          <h6 className="editTitle">Manage Connections</h6>
+          <div className="scrollableConnections ">
+            {
+              users?.map(({fullName, position, location, profilePicture}, i) => {
+                var idVal = `editCard-${i}`
+                if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' ) {
+                  return(
+                    <div className="row profileCard editCard" key={i} id={idVal} onClick={()=>deleteEditCard(i)}>
+                      <div className="profileCardContent">
+                        {
+                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                          : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
+                        }
+                      </div>
+                      <div className="profileCardContent">
+                        <h4>{fullName}</h4>
+                        <h6>{position}</h6>
+                        <p>{location}</p>
+                      </div>
+                    </div>
+                  )
+                }
+              })
+            }
+          </div>
+        </div>
+      </>
+    ) 
+  }
+
+  return (
     <>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -137,7 +245,7 @@ const Profile = () =>{
                         <h6>Skills:</h6>
                         <Inputs.DropdownSelect
                           defaultValue={currentUser.skills || []}
-                          options={categoriesData}
+                          options={[categoriesData]}
                           onChange={(value) => handleChange("skills", value)}
                           placeholder="Skill to provide:"
                         />
@@ -195,6 +303,14 @@ const Profile = () =>{
                         placeholder={currentUser.email}
                       />
                   </div>
+                  <div class="form-group">
+                    <label>User Type:</label>
+                      <Inputs.DropdownSelect
+                        options={[{label: "employee"},{label: "alumni"}]}
+                        onChange={(value) => handleChange("userType", value)}
+                        placeholder={currentUser.userType}
+                      />
+                  </div>
                   {currentUser.roles.includes("mentor")?(
                     <div class="form-group">
                       <label>Mentee Limit:</label>
@@ -226,12 +342,12 @@ const Profile = () =>{
                   <div class="form-group">
                     <Inputs.Button 
                       text="Save Changes"
-                      onClick={()=> SubmitButtonCLicked()}
+                      onClick={()=> SubmitButtonClicked()}
                     />
                     <span></span>
                     <Inputs.Button 
                       text="Cancel"
-                      onClick={()=> ResetButtonCLicked()}
+                      onClick={()=> ResetButtonClicked()}
                     />
                   </div>
                 </div>
@@ -239,23 +355,11 @@ const Profile = () =>{
             </form>
           </div>
         </div>
-        {/* <div className="row">
+        <div className="row">
           <div className="col-md-12 connectionsAndMentorships">
-            {currentUser.roles.length>1?(
-              <div className="manageRoles">
-                <Inputs.DropdownSelect
-                  options={[
-                    {label: "Mentee"},
-                    {label: "Mentor"},
-                    {label: "Mentee and Mentor"}
-                  ]}
-                  onChange={(value) => handleChange("roles", value)}
-                  placeholder="Mentee and Mentor"
-                />
-              </div>
-            ):""}
+            {editCardClicked(usersData)}
           </div>
-        </div> */}
+        </div>
         <div className="row">
           <div className="col-md-12 FAQ">
             <NavLink to="/faq">
@@ -267,6 +371,7 @@ const Profile = () =>{
           </div>
         </div>           
       </div>
+      
     </>
   )
 }

@@ -4,6 +4,7 @@ import "./styles.scss"
 import { NavLink } from "react-router-dom"
 import { Inputs } from "../../components"
 import Swal from "sweetalert2"
+import { usersData } from "../../data"
 
 
 const Home = () => {
@@ -43,73 +44,67 @@ const Home = () => {
 
   }
 
+  const displaySuggestedMentors=()=>{
+    return(
+      usersData?.map(({fullName, position, location, profilePicture, roles, skills, toImprove}, i) => {
+        var idVal = `searchCard-${i}`
+        if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
+          return(
+            <div className="row profileCard searchCard" key={i} id={idVal} onClick={()=>({})}>
+              <div className="profileCardContent">
+                {
+                  profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/> 
+                  : <img src={profilePicture} style={{height: 100, width: 100}} alt="User-Profile"/>
+                }
+              </div>
+              <div className="profileCardContent">
+                <h4>{fullName}</h4>
+                <h6>{position}</h6>
+                <p>{location}</p>
+              </div>
+
+              <div className="profileCardContent">
+                <h1></h1>
+                <h6>Roles:</h6>
+                {roles?.map((role, i) => <li key={i}>{role}</li>)}
+              </div>
+              <div className="catagories">
+                <div className="profileCardContent">
+                  <h6>Skills:</h6>
+                  {skills?.map((skill, i) => <li key={i}>{skill}</li>)}
+                </div>
+                <div className="profileCardContent">
+                  <h6>To Improve:</h6>
+                  {toImprove?.map((toImprove, i) => <li key={i}>{toImprove}</li>)}
+                </div>
+              </div>
+              <div className="connectAndMentorBtn">
+                <Inputs.Button 
+                  text="Connect"
+                  className="connectBtn"
+                  onClick={()=>{connectUser()}}
+                />
+                <div className="space"></div>
+                <Inputs.Button 
+                  text="Request Mentorship"
+                  className="mentorshipBtn"
+                  onClick={()=>{mentorRequestUser()}}
+                />
+              </div>
+
+            </div>
+          )
+        }
+      })
+    )
+  }
+
   const DisplayProfileCard = () =>{
     return(
       <>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>  
-        <div className="row profileCard" >
-          <div className="profileCardContent">
-            {
-              currentUser.profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/> 
-              : <img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
-            }
-          </div>
-          <div className="profileCardContent">
-            <h4>{currentUser.fullName}</h4>
-            <h6>{currentUser.position}</h6>
-            <p>{currentUser.location}</p>
-          </div>
-          <div className="profileCardContent">
-            <h1></h1>
-            <h6>Roles:</h6>
-            {currentUser.roles.map((role, i) => <li key={i}>{role}</li>)}
-          </div>
-          <div className="catagories">
-            <div className="profileCardContent">
-              <h6>Skills:</h6>
-              {currentUser.skills.map((skill, i) => <li key={i}>{skill}</li>)}
-            </div>
-            <div className="profileCardContent">
-              <h6>To Improve:</h6>
-              {currentUser.toImprove.map((toImprove, i) => <li key={i}>{toImprove}</li>)}
-            </div>
-          </div>
-          <div className="connectAndMentorBtn">
-            <Inputs.Button 
-              text="Connect"
-              className="connectBtn"
-              onClick={()=>{connectUser()}}
-            />
-            <div className="space"></div>
-            <Inputs.Button 
-              text="Request Mentorship"
-              className="mentorshipBtn"
-              onClick={()=>{mentorRequestUser()}}
-            />
-          </div>        
-        </div>
 
-        <div className="row profileCard">
-          <div className="profileCardContent">
-            {
-              currentUser.profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/> 
-              : <img src={currentUser.profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
-            }
-          </div>
-          <div className="profileCardContent">
-            <h4>{currentUser.fullName}</h4>
-            <h6>{currentUser.position}</h6>
-            <p>{currentUser.location}</p>
-          </div>
-          <div className="profileCardContent">
-            <h4>{currentUser.fullName}</h4>
-            <h6>{currentUser.position}</h6>
-            <p>{currentUser.location}</p>
-          </div>
-          <p>
-            Prepared is me marianne pleasure likewise debating. Wonder an unable except better stairs do ye admire. His and eat secure sex called esteem praise. So moreover as speedily differed branched ignorant. Tall are her knew poor now does then. Procured to contempt oh he raptures amounted occasion. One boy assure income spirit lovers set.
-          </p>
-        </div>
+        {displaySuggestedMentors()}
       </>
     )
    }
@@ -153,8 +148,15 @@ const Home = () => {
           <select id="userTypeFilter">
             <option>All</option>
             <option>Employee</option>
-            <option>ExForces</option>
             <option>Alumni</option>
+          </select>
+        </div>
+
+        <div className="filterOption">
+          <h6>Ex-Forces</h6>
+          <select id="exForcesFilter">
+            <option>Yes</option>
+            <option>No</option>
           </select>
         </div>
 
