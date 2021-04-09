@@ -58,7 +58,7 @@ const Home = () => {
                 }
               </div>
               <div className="profileCardContent">
-                <h4>{fullName}</h4>
+                <h5>{fullName}</h5>
                 <h6>{position}</h6>
                 <p>{location}</p>
               </div>
@@ -103,7 +103,6 @@ const Home = () => {
     return(
       <>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>  
-
         {displaySuggestedMentors()}
       </>
     )
