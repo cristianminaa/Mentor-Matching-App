@@ -68,7 +68,11 @@ const Profile = () =>{
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('User Deleted!', '', 'success')
-        document.getElementById(`editCard-${i}`).style.display="none";
+        // document.getElementsByClassName(`card-${i}`).style.display="none";
+        const card = document.getElementsByClassName(`card-${i}`);
+        for(var j=0; j<card.length; j++) {
+          card[j].style.display="none";
+        }        
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
       }
@@ -84,10 +88,10 @@ const Profile = () =>{
           <div className="scrollableMentors">
             {
               users?.map(({fullName, position, location, profilePicture, roles}, i) => {
-                var idVal = `editCard-${i}`
+                var idVal = `row profileCard editCard card-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
                   return(
-                    <div className="row profileCard editCard" key={i} id={idVal} onClick={()=>deleteEditCard(i)}>
+                    <div className={idVal} key={i} onClick={()=>deleteEditCard(i)}>
                       <div className="profileCardContent">
                         {
                           profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
@@ -112,10 +116,10 @@ const Profile = () =>{
           <div className="scrollableMentees">
             {
               users?.map(({fullName, position, location, profilePicture, roles}, i) => {
-                var idVal = `editCard-${i}`
+                var idVal = `row profileCard editCard card-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentee")) {
                   return(
-                    <div className="row profileCard editCard" key={i} id={idVal} onClick={()=>deleteEditCard(i)}>
+                    <div className={idVal} key={i} onClick={()=>deleteEditCard(i)}>
                       <div className="profileCardContent">
                         {
                           profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
@@ -140,10 +144,10 @@ const Profile = () =>{
           <div className="scrollableConnections ">
             {
               users?.map(({fullName, position, location, profilePicture}, i) => {
-                var idVal = `editCard-${i}`
+                var idVal = `row profileCard editCard card-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' ) {
                   return(
-                    <div className="row profileCard editCard" key={i} id={idVal} onClick={()=>deleteEditCard(i)}>
+                    <div className={idVal} key={i} onClick={()=>deleteEditCard(i)}>
                       <div className="profileCardContent">
                         {
                           profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
