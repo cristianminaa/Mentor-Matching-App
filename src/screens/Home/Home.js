@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import "./styles.scss"
 import { NavLink } from "react-router-dom"
@@ -45,10 +45,6 @@ const Home = () => {
       icon: "success",
       text: "Mentorship Offer sent!",
     })
-  }
-
-  const filterSearch=()=>{
-
   }
 
   const displaySuggestedMentors=()=>{
@@ -120,7 +116,107 @@ const Home = () => {
         {displaySuggestedMentors()}
       </>
     )
+  }
+
+  //Initialise query from form input
+  const [query, setQuery] = useState("")
+  //Declare array which stores index of usersData found from search
+  var searchResults = [];
+
+  //Search for the users
+  const SearchQuery = () => {
+	const regex = query;
+	searchResults = [];
+	var i;
+	//Check every user in userData if the name matches, push index to searchResults if there is a match
+	for (i = 1; i < usersData.length; i += 2 ) {
+	  if (usersData[i].fullName.match(regex) != null) {
+		searchResults.push(i);
+	  }
+	}
+	//Initialises array of tags found in search
+	var tags = regex.match(/#\w+/g);
+	var j;
+	console.log(tags);
+	//If there are tags, loop through each user for the tags, loop through every tag in the usersData.tag array, push index to searchResults if match
+	if (tags) {
+	  for (i = 1; i < usersData.length; i += 2) {
+	    for(j = 0; j < tags.length; j++)
+		  var checkTag = tags[j].replace(/#(\S)/g, '$1');
+	  	  if (usersData[i].skills.includes(checkTag)) {
+		  	  searchResults.push(i);
+		  }
+	  }
+	}
+	console.log(checkTag);
+	console.log(searchResults);
+	//Runs broken function which is meant to check searchResults is valid to load profiles up
+	{DisplaySearchCheck(searchResults[0])}
+  }
+
+  //Broken, was meant to make it so looped searchResults to display each profile by calling function and passing index as arg
+  const DisplaySearchCheck = (index) =>{
+	//Meant to check if searchResults wasnt empty before running the display 
+    if (searchResults[0] !== undefined) {
+	  console.log("yes");
+	  {DisplaySearch(searchResults[0])}
+	}
+  }
+  //Copied from Display profile from old branch, displays profile based on index given
+  const DisplaySearch = (index) =>{
+    console.log(usersData[index]);
+	return(
+      <>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>  
+        <div className="row profileCard" >
+          <div className="profileCardContent">
+            {
+              usersData[index].profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 100, width:100}} alt="User-Profile"/> 
+              : <img src={usersData[index].profilePicture} style={{height: 100, width:100}} alt="User-Profile"/>
+            }
+          </div>
+          <div className="profileCardContent">
+            <h4>{usersData[index].fullName}</h4>
+            <h6>{usersData[index].position}</h6>
+            <p>{usersData[index].location}</p>
+          </div>
+          <div className="profileCardContent">
+            <h1></h1>
+            <h6>Roles:</h6>
+            {usersData[index].roles.map((role, i) => <li key={i}>{role}</li>)}
+          </div>
+          <div className="catagories">
+            <div className="profileCardContent">
+              <h6>Skills:</h6>
+              {usersData[index].skills.map((skill, i) => <li key={i}>{skill}</li>)}
+            </div>
+            <div className="profileCardContent">
+             <h6>To Improve:</h6>
+              {usersData[index].toImprove.map((toImprove, i) => <li key={i}>{toImprove}</li>)}
+            </div>
+          </div>
+          <div className="connectAndMentorBtn">
+            <Inputs.Button 
+              text="Connect"
+              className="connectBtn"
+              onClick={()=>{connectUser()}}
+            />
+            <div className="space"></div>
+            <Inputs.Button 
+              text="Request Mentorship"
+              className="mentorshipBtn"
+              onClick={()=>{mentorRequestUser()}}
+            />
+          </div>     
+        </div>
+      </>
+    )
    }
+
+  const filterSearch=()=>{
+
+  }
+
 
   return (
     <>
@@ -134,9 +230,13 @@ const Home = () => {
           </NavLink>
         </div>
         <form role="search" id="searchForm">
-          <input id="search" type="search" placeholder="Search..." autofocus required />
-          <button type="submit">Go</button>    
+          <input type="text" id="search" type="search" onChange={event => setQuery(event.target.value)} placeholder="Search..." autoFocus />
         </form>
+		<Inputs.Button 
+		  text="Go"
+		  className="searchBtn"
+		  onClick={()=> SearchQuery()}
+		/>
         <div className="msg">
           <NavLink to="/Chat">
             <svg xmlns="http://www.w3.org/2000/svg" height="50" fill="white" class="bi bi-chat-text" viewBox="0 0 16 16">
