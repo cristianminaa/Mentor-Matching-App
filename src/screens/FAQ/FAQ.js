@@ -32,7 +32,7 @@ const FAQ = () => {
             </p>
           </div>
         <div className="collapsibles">
-          <Accordion allowZeroExpanded="True">
+          <Accordion allowZeroExpanded="True" allowMultipleExpanded="True">
             <AccordionItem>
               <AccordionItemHeading>
                 <AccordionItemButton>
