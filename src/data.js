@@ -73,6 +73,8 @@ export const usersData = [
     registrationDate: "",
     profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },
+
+  { email: "de", password: "de", profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png", },
   {
     firstName: "Dennis",
     lastName: "Grigoryev",
