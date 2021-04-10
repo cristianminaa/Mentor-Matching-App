@@ -36,7 +36,14 @@ const Home = () => {
   const mentorRequestUser=()=>{
     Swal.fire({
       icon: "success",
-      text: "Connection Request sent!",
+      text: "Mentorship Request sent!",
+    })
+  }
+
+  const mentorOfferUser=()=>{
+    Swal.fire({
+      icon: "success",
+      text: "Mentorship Offer sent!",
     })
   }
 
@@ -90,6 +97,13 @@ const Home = () => {
                   className="mentorshipBtn"
                   onClick={()=>{mentorRequestUser()}}
                 />
+                <div className="space"></div>
+                {currentUser.roles?.includes("mentor")? 
+                  <Inputs.Button 
+                  text="Offer Mentorship"
+                  className="mentorshipOfferBtn"
+                  onClick={()=>{mentorOfferUser()}}
+                /> :""}
               </div>
 
             </div>
