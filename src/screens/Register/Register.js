@@ -33,10 +33,12 @@ const Register = () => {
     )
 
   const verifyStep = (step) => {
-    const { fullName, email, password, roles, phoneNumber, dateOfBirth } = user
-    if (!fullName || !email || !password || !roles) {
+    const { firstName, lastName, email, password, roles, phoneNumber, dateOfBirth } = user
+    if (!firstName || !lastName || !email || !password || !roles) {
       Swal.fire({ icon: "error", title: "Missing details" })
       return false
+    } else {
+      handleChange("fullName", firstName+" "+lastName)
     }
     if (!/fdm.com$/.test(email)) {
       Swal.fire({ icon: "error", title: "Please enter a FDM email!" })
@@ -66,12 +68,20 @@ const Register = () => {
           {step === 1 && (
             <>
               <Inputs.Text
-                value={user?.fullName || ""}
+                value={user?.firstName || ""}
                 onChange={({ target: { value } }) =>
-                  handleChange("fullName", value)
+                  handleChange("firstName", value)
                 }
-                placeholder="Full Name: "
+                placeholder="First Name: "
               />
+              <Inputs.Text
+                value={user?.lastName || ""}
+                onChange={({ target: { value } }) =>
+                  handleChange("lastName", value)
+                }
+                placeholder="Last Name: "
+              />
+              
               <Inputs.Text
                 value={user?.email || ""}
                 onChange={({ target: { value } }) =>
@@ -142,12 +152,10 @@ const Register = () => {
                   placeholder="Position: "
                 />
                 {user?.roles?.includes("mentor") && (
-                  <Inputs.Text
-                    value={user?.maxNumberOfMentees || ""}
-                    onChange={({ target: { value } }) =>
-                      handleChange("maxNumberOfMentees", value)
-                    }
-                    className="maxNumberOfMentees"
+                  <Inputs.DropdownSelect
+                    defaultValue={user?.maxNumberOfMentees || 1}
+                    options={[{label: 1},{label: 2},{label: 3},{label: 4},{label: 5}]}
+                    onChange={(value) => handleChange("maxNumberOfMentees", value)}
                     placeholder="Max number of mentees: "
                   />
                 )}
