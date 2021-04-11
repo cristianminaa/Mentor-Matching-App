@@ -133,6 +133,35 @@ const Profile = () =>{
     }
   }
 
+  const regBtn =()=>{
+    return(
+      <>
+        <h6>Skills:</h6>
+        
+      </>
+    )
+  }
+
+  const mentorRegistration = () =>{
+    Swal.fire({
+      title: 'Are you sure you want to become a Mentor?',
+      text: 'You will be asked to add your skills once approved.',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#1daded',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, apply to become mentor.'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Application sent!',
+          'Your mentor application has been sent.',
+          'success'
+        )
+      }
+    })
+  }
+
   const editCardClicked=(users)=>{
     return(
       <>
@@ -163,34 +192,38 @@ const Profile = () =>{
             }
           </div>
         </div>
-
-        <div className="editMentees">
-          <h6 className="editTitle">Manage Mentees</h6>
-          <div className="scrollableMentees">
-            {
-              users?.map(({fullName, position, location, profilePicture, roles}, i) => {
-                var idVal = `menteeCard-${i}`
-                if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentee")) {
-                  return(
-                    <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("mentee",i)}>
-                      <div className="profileCardContent">
-                        {
-                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
-                          : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
-                        }
+        {
+        currentUser?.roles.includes("mentor")? 
+          <div className="editMentees">
+            <h6 className="editTitle">Manage Mentees</h6>
+            <div className="scrollableMentees">
+              {
+                users?.map(({fullName, position, location, profilePicture, roles}, i) => {
+                  var idVal = `menteeCard-${i}`
+                  if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentee")) {
+                    return(
+                      <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("mentee",i)}>
+                        <div className="profileCardContent">
+                          {
+                            profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                            : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
+                          }
+                        </div>
+                        <div className="profileCardContent">
+                          <h4>{fullName}</h4>
+                          <h6>{position}</h6>
+                          <p>{location}</p>
+                        </div>
                       </div>
-                      <div className="profileCardContent">
-                        <h4>{fullName}</h4>
-                        <h6>{position}</h6>
-                        <p>{location}</p>
-                      </div>
-                    </div>
-                  )
-                }
-              })
-            }
+                    )
+                  }
+                })
+              }
+            </div>
           </div>
-        </div>
+          :""
+        }
+        
         
         <div className="editConnections">
           <h6 className="editTitle">Manage Connections</h6>
@@ -317,6 +350,12 @@ const Profile = () =>{
                       }
                       placeholder="Interests: photography, cars, cooking "
                     />
+                    {!currentUser?.roles?.includes("mentor")?(
+                      <Inputs.Button 
+                        text="Register to become a Mentor"
+                        onClick={()=>{mentorRegistration()}}
+                      />
+                    ):""}
                   </div>
                 </div>
                 <div className="col-md-8 main-info" id="main">
@@ -419,7 +458,7 @@ const Profile = () =>{
         </div>
         <div className="row">
           <div className="col-md-12 FAQ">
-            <NavLink to="/faq">
+            <NavLink to="/faq"style={{textDecoration: "none"}}>
               <Inputs.Button 
                 text="FAQ"
                 onClick={()=>{}}

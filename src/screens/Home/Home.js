@@ -67,7 +67,6 @@ const Home = () => {
               </div>
 
               <div className="profileCardContent roleContent">
-                <h1></h1>
                 {/* <h6>Roles:</h6> */}
                 {roles?.map((role, i) => <li key={i}>{role}</li>)}
                 {exForces? <li>Ex Forces</li> : ""}
