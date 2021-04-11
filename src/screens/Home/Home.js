@@ -49,9 +49,9 @@ const Home = () => {
 
   const displaySuggestedMentors=()=>{
     return(
-      usersData?.map(({fullName, position, location, profilePicture, roles, skills, toImprove}, i) => {
+      usersData?.map(({fullName, position, location, profilePicture, roles, skills, toImprove, exForces, userType}, i) => {
         var idVal = `searchCard-${i}`
-        if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
+        if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof userType!=='undefined' && typeof exForces!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
           return(
             <div className="row profileCard searchCard" key={i} id={idVal} onClick={()=>({})}>
               <div className="profileCardContent">
@@ -66,19 +66,21 @@ const Home = () => {
                 <p>{location}</p>
               </div>
 
-              <div className="profileCardContent">
+              <div className="profileCardContent roleContent">
                 <h1></h1>
-                <h6>Roles:</h6>
+                {/* <h6>Roles:</h6> */}
                 {roles?.map((role, i) => <li key={i}>{role}</li>)}
+                {exForces? <li>Ex Forces</li> : ""}
+                {<li>{userType}</li>}
               </div>
               <div className="catagories">
                 <div className="profileCardContent">
                   <h6>Skills:</h6>
-                  {skills?.map((skill, i) => <li key={i}>{skill}</li>)}
+                  {skills.length>1? skills?.map((skill, i) => <li key={i}>{skill}</li>) : ""}
                 </div>
                 <div className="profileCardContent">
                   <h6>To Improve:</h6>
-                  {toImprove?.map((toImprove, i) => <li key={i}>{toImprove}</li>)}
+                  {toImprove.length>1? toImprove?.map((toImprove, i) => <li key={i}>{toImprove}</li>) : ""}
                 </div>
               </div>
               <div className="connectAndMentorBtn">
@@ -158,14 +160,14 @@ const Home = () => {
   const DisplaySearchCheck = (index) =>{
 	//Meant to check if searchResults wasnt empty before running the display 
     if (searchResults[0] !== undefined) {
-	  console.log("yes");
-	  {DisplaySearch(searchResults[0])}
-	}
+      console.log("yes");
+      {DisplaySearch(searchResults[0])}
+    }
   }
   //Copied from Display profile from old branch, displays profile based on index given
   const DisplaySearch = (index) =>{
     console.log(usersData[index]);
-	return(
+	  return(
       <>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>  
         <div className="row profileCard" >
@@ -211,7 +213,7 @@ const Home = () => {
         </div>
       </>
     )
-   }
+  }
 
   const filterSearch=()=>{
 
