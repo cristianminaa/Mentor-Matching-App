@@ -86,12 +86,21 @@
       margin-top: 5px;
     }
   }
-  .roleContent {
+  .roleTags {
     width: 190px;
     li {
       display: inline-block;
       margin-right: 5px;
     }
+  }
+
+  .skillsTags li {
+    background-color: aquamarine;
+    color: #202025;
+  }
+
+  .improveTags li {
+    background-color: crimson;
   }
 }
 

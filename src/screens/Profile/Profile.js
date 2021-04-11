@@ -195,7 +195,7 @@ const Profile = () =>{
           </div>
         </div>
         {
-        currentUser?.roles.includes("mentor")?
+        currentUser?.roles?.includes("mentor")?
           <div className="editMentees">
             <h6 className="editTitle">Manage Mentees</h6>
             <div className="scrollableMentees">

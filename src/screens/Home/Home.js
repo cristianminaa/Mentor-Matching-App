@@ -66,20 +66,20 @@ const Home = () => {
                 <p>{location}</p>
               </div>
 
-              <div className="profileCardContent roleContent">
+              <div className="profileCardContent roleTags">
                 {/* <h6>Roles:</h6> */}
                 {roles?.map((role, i) => <li key={i}>{role}</li>)}
                 {exForces? <li>Ex Forces</li> : ""}
                 {<li>{userType}</li>}
               </div>
               <div className="catagories">
-                <div className="profileCardContent">
+                <div className="profileCardContent skillsTags">
                   <h6>Skills:</h6>
-                  {skills.length>1? skills?.map((skill, i) => <li key={i}>{skill}</li>) : ""}
+                  {skills.length>0? skills?.map((skill, i) => <li key={i}>{skill}</li>) : ""}
                 </div>
-                <div className="profileCardContent">
+                <div className="profileCardContent improveTags">
                   <h6>To Improve:</h6>
-                  {toImprove.length>1? toImprove?.map((toImprove, i) => <li key={i}>{toImprove}</li>) : ""}
+                  {toImprove.length>0? toImprove?.map((toImprove, i) => <li key={i}>{toImprove}</li>) : ""}
                 </div>
               </div>
               <div className="connectAndMentorBtn">
