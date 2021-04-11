@@ -58,26 +58,79 @@ const Profile = () =>{
     document.getElementById('file-btn').click()
   }
 
-  const deleteEditCard=(i)=>{
-    Swal.fire({
-      title: 'Do you want to remove this user?',
-      showCancelButton: true,
-      confirmButtonText: `Yes`,
-      confirmButtonColor: '#1daded',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('User Deleted!', '', 'success')
-        // document.getElementsByClassName(`card-${i}`).style.display="none";
-        const card = document.getElementsByClassName(`card-${i}`);
-        for(var j=0; j<card.length; j++) {
-          card[j].style.display="none";
-        }        
-      } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
+  const deleteMenteeMentor=(type, i)=>{
+    if(type === "mentor") {
+      Swal.fire({
+        icon: "warning",
+        title: 'Do you want to remove this Mentor?',
+        showCancelButton: true,
+        confirmButtonText: `Yes`,
+        confirmButtonColor: '#1daded',
+        cancelButtonColor: '#d33',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Mentor Removed!', '', 'success')
+          document.getElementById(`mentorCard-${i}`).style.display="none";     
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
+    } else if(type === "mentee") {
+      Swal.fire({
+        icon: "warning",
+        title: 'Do you want to remove this Mentee?',
+        showCancelButton: true,
+        confirmButtonText: `Yes`,
+        confirmButtonColor: '#1daded',
+        cancelButtonColor: '#d33',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Mentee Removed!', '', 'success')
+          document.getElementById(`menteeCard-${i}`).style.display="none";     
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
+    } else if(type === "connection") {
+      var mentor = document.getElementById(`mentorCard-${i}`)
+      var mentee = document.getElementById(`menteeCard-${i}`)
+      var menteeCheck, mentorCheck = "";
+      if (mentee!=null) {
+        menteeCheck=mentee.style.display==="none";
+      } else {
+        menteeCheck=true
       }
-    })
-    
+
+      if (mentor!=null) {
+        mentorCheck=mentor.style.display==="none";
+      } else {
+        mentorCheck=true
+      }
+
+      if (mentorCheck && menteeCheck) {
+        Swal.fire({
+          icon: "warning",
+          title: 'Do you want to remove this Connection?',
+          showCancelButton: true,
+          confirmButtonText: `Yes`,
+          confirmButtonColor: '#1daded',
+          cancelButtonColor: '#d33',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire('Connection Removed!', '', 'success')
+            document.getElementById(`conCard-${i}`).style.display="none";     
+          } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+          }
+        })
+      } else {
+         Swal.fire({
+           icon: "error",
+           title: "Cannot remove this connection!",
+           text: "This connection exists either in your Mentor or Mentee list. Please remove them from these lists before attempting to remove them from your connections list."
+         })
+      }
+    }
   }
 
   const editCardClicked=(users)=>{
@@ -88,10 +141,10 @@ const Profile = () =>{
           <div className="scrollableMentors">
             {
               users?.map(({fullName, position, location, profilePicture, roles}, i) => {
-                var idVal = `row profileCard editCard card-${i}`
+                var idVal = `mentorCard-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
                   return(
-                    <div className={idVal} key={i} onClick={()=>deleteEditCard(i)}>
+                    <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("mentor",i)}>
                       <div className="profileCardContent">
                         {
                           profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
@@ -116,10 +169,10 @@ const Profile = () =>{
           <div className="scrollableMentees">
             {
               users?.map(({fullName, position, location, profilePicture, roles}, i) => {
-                var idVal = `row profileCard editCard card-${i}`
+                var idVal = `menteeCard-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentee")) {
                   return(
-                    <div className={idVal} key={i} onClick={()=>deleteEditCard(i)}>
+                    <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("mentee",i)}>
                       <div className="profileCardContent">
                         {
                           profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
@@ -144,10 +197,10 @@ const Profile = () =>{
           <div className="scrollableConnections ">
             {
               users?.map(({fullName, position, location, profilePicture}, i) => {
-                var idVal = `row profileCard editCard card-${i}`
+                var idVal = `conCard-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' ) {
                   return(
-                    <div className={idVal} key={i} onClick={()=>deleteEditCard(i)}>
+                    <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("connection",i)}>
                       <div className="profileCardContent">
                         {
                           profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
