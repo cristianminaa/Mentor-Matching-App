@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import { Inputs } from "../../components"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { logOut } from "../../redux/actions"
 import "./styles.scss"
 import { NavLink } from "react-router-dom"
 import { categoriesData } from "../../data"
@@ -8,10 +9,11 @@ import { usersData } from "../../data"
 import Swal from "sweetalert2"
 
 const Profile = () =>{
+  const dispatch = useDispatch()
   const { currentUser } = useSelector((state) => state.users)
   const [user, setUser] = useState({})
   const handleChange = (field, value) => setUser({ ...user, [field]: value })
-  
+
   const SubmitButtonClicked=()=>{
     if(document.getElementById("mainPass").value !== document.getElementById("confirmPass").value) {
       Swal.fire({ icon: "error", title: "Password does not match!" })
@@ -70,7 +72,7 @@ const Profile = () =>{
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire('Mentor Removed!', '', 'success')
-          document.getElementById(`mentorCard-${i}`).style.display="none";     
+          document.getElementById(`mentorCard-${i}`).style.display="none";
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')
         }
@@ -86,7 +88,7 @@ const Profile = () =>{
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire('Mentee Removed!', '', 'success')
-          document.getElementById(`menteeCard-${i}`).style.display="none";     
+          document.getElementById(`menteeCard-${i}`).style.display="none";
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info')
         }
@@ -118,7 +120,7 @@ const Profile = () =>{
         }).then((result) => {
           if (result.isConfirmed) {
             Swal.fire('Connection Removed!', '', 'success')
-            document.getElementById(`conCard-${i}`).style.display="none";     
+            document.getElementById(`conCard-${i}`).style.display="none";
           } else if (result.isDenied) {
             Swal.fire('Changes are not saved', '', 'info')
           }
@@ -137,7 +139,7 @@ const Profile = () =>{
     return(
       <>
         <h6>Skills:</h6>
-        
+
       </>
     )
   }
@@ -176,7 +178,7 @@ const Profile = () =>{
                     <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("mentor",i)}>
                       <div className="profileCardContent">
                         {
-                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/>
                           : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
                         }
                       </div>
@@ -193,7 +195,7 @@ const Profile = () =>{
           </div>
         </div>
         {
-        currentUser?.roles.includes("mentor")? 
+        currentUser?.roles.includes("mentor")?
           <div className="editMentees">
             <h6 className="editTitle">Manage Mentees</h6>
             <div className="scrollableMentees">
@@ -205,7 +207,7 @@ const Profile = () =>{
                       <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("mentee",i)}>
                         <div className="profileCardContent">
                           {
-                            profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                            profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/>
                             : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
                           }
                         </div>
@@ -223,8 +225,8 @@ const Profile = () =>{
           </div>
           :""
         }
-        
-        
+
+
         <div className="editConnections">
           <h6 className="editTitle">Manage Connections</h6>
           <div className="scrollableConnections ">
@@ -236,7 +238,7 @@ const Profile = () =>{
                     <div className="row profileCard editCard" id={idVal} key={i} onClick={()=>deleteMenteeMentor("connection",i)}>
                       <div className="profileCardContent">
                         {
-                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/> 
+                          profilePicture === ""? <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style={{height: 45, width:45}} alt="User-Profile"/>
                           : <img src={profilePicture} style={{height: 45, width: 45}} alt="User-Profile"/>
                         }
                       </div>
@@ -253,7 +255,7 @@ const Profile = () =>{
           </div>
         </div>
       </>
-    ) 
+    )
   }
 
   return (
@@ -262,13 +264,13 @@ const Profile = () =>{
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"></link>
-      
-      <div className="wrapper">  
+
+      <div className="wrapper">
         <div className="profilePic">
           <NavLink to="/">
             <svg xmlns="http://www.w3.org/2000/svg" height="50" fill="ghostwhite" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
               <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
-            </svg> 
+            </svg>
           </NavLink>
         </div>
         <NavLink to="/">
@@ -313,7 +315,7 @@ const Profile = () =>{
                         <p>Current number Mentor(s) : {currentUser.mentors}</p>
                       ) : ""}
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
               <div className="row">
@@ -351,7 +353,7 @@ const Profile = () =>{
                       placeholder="Interests: photography, cars, cooking "
                     />
                     {!currentUser?.roles?.includes("mentor")?(
-                      <Inputs.Button 
+                      <Inputs.Button
                         text="Register to become a Mentor"
                         onClick={()=>{mentorRegistration()}}
                       />
@@ -436,12 +438,12 @@ const Profile = () =>{
                       />
                   </div>
                   <div class="form-group">
-                    <Inputs.Button 
+                    <Inputs.Button
                       text="Save Changes"
                       onClick={()=> SubmitButtonClicked()}
                     />
                     <span></span>
-                    <Inputs.Button 
+                    <Inputs.Button
                       text="Cancel"
                       onClick={()=> ResetButtonClicked()}
                     />
@@ -459,15 +461,23 @@ const Profile = () =>{
         <div className="row">
           <div className="col-md-12 FAQ">
             <NavLink to="/faq"style={{textDecoration: "none"}}>
-              <Inputs.Button 
+              <Inputs.Button
                 text="FAQ"
                 onClick={()=>{}}
               />
             </NavLink>
           </div>
-        </div>           
+        </div>
+        <div className="row">
+          <div className="col-md-12 FAQ">
+              <Inputs.Button
+                text="Log Out"
+                onClick={()=>dispatch(logOut())}
+              />
+          </div>
+        </div>
       </div>
-      
+
     </>
   )
 }

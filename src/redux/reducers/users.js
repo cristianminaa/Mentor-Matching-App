@@ -1,10 +1,17 @@
 import { usersActions } from "../actions"
+import { history } from "../store"
 import { usersData } from "../../data"
 import Swal from "sweetalert2"
 
+const getCurrentUser = () => {
+  const localStorageUser = JSON.parse(localStorage.getItem("user"))
+  if (localStorageUser) return localStorageUser
+  return {}
+}
+
 const initialState = {
   allUsers: usersData,
-  currentUser: {},
+  currentUser: getCurrentUser(),
 }
 
 const users = (state = initialState, { type, payload }) => {
@@ -12,6 +19,8 @@ const users = (state = initialState, { type, payload }) => {
     case usersActions.LOG_IN:
       return { ...state, currentUser: getUser(state.allUsers, payload) }
     case usersActions.LOG_OUT:
+      localStorage.removeItem("user")
+      history.push("/")
       return { ...state, currentUser: {} }
     case usersActions.ADD_USER:
       return {
@@ -44,5 +53,6 @@ const getUser = (allUsers, { email, password }) => {
       title: "Wrong credentials",
       text: "Please try again!",
     })
+  if (user) localStorage.setItem("user", JSON.stringify(user))
   return user || {}
 }
