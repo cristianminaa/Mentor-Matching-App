@@ -125,33 +125,33 @@ const Home = () => {
 
   //Search for the users
   const SearchQuery = () => {
-	const regex = query;
-	searchResults = [];
-	var i;
-	//Check every user in userData if the name matches, push index to searchResults if there is a match
-	for (i = 1; i < usersData.length; i += 2 ) {
-	  if (usersData[i].fullName.match(regex) != null) {
-		searchResults.push(i);
-	  }
-	}
-	//Initialises array of tags found in search
-	var tags = regex.match(/#\w+/g);
-	var j;
-	console.log(tags);
-	//If there are tags, loop through each user for the tags, loop through every tag in the usersData.tag array, push index to searchResults if match
-	if (tags) {
-	  for (i = 1; i < usersData.length; i += 2) {
-	    for(j = 0; j < tags.length; j++)
-		  var checkTag = tags[j].replace(/#(\S)/g, '$1');
-	  	  if (usersData[i].skills.includes(checkTag)) {
-		  	  searchResults.push(i);
-		  }
-	  }
-	}
-	console.log(checkTag);
-	console.log(searchResults);
-	//Runs broken function which is meant to check searchResults is valid to load profiles up
-	{DisplaySearchCheck(searchResults[0])}
+    const regex = query;
+    searchResults = [];
+    var i;
+    //Check every user in userData if the name matches, push index to searchResults if there is a match
+    for (i = 1; i < usersData.length; i += 2 ) {
+      if (usersData[i].fullName.toLocaleLowerCase().match(regex.toLocaleLowerCase()) != null) {
+        searchResults.push(i);
+      }
+    }
+    //Initialises array of tags found in search
+    var tags = regex.match(/#\w+/g);
+    var j;
+    console.log(tags);
+    //If there are tags, loop through each user for the tags, loop through every tag in the usersData.tag array, push index to searchResults if match
+    if (tags) {
+      for (i = 1; i < usersData.length; i += 2) {
+        for(j = 0; j < tags.length; j++)
+        var checkTag = tags[j].replace(/#(\S)/g, '$1');
+          if (usersData[i].skills.includes(checkTag)) {
+            searchResults.push(i);
+        }
+      }
+    }
+    console.log(checkTag);
+    console.log(searchResults);
+    //Runs broken function which is meant to check searchResults is valid to load profiles up
+    {DisplaySearchCheck(searchResults[0])}
   }
 
   //Broken, was meant to make it so looped searchResults to display each profile by calling function and passing index as arg
@@ -229,14 +229,17 @@ const Home = () => {
             }
           </NavLink>
         </div>
-        <form role="search" id="searchForm">
-          <input type="text" id="search" type="search" onChange={event => setQuery(event.target.value)} placeholder="Search..." autoFocus />
-        </form>
-		<Inputs.Button 
-		  text="Go"
-		  className="searchBtn"
-		  onClick={()=> SearchQuery()}
-		/>
+        <div className="searchContainer">
+          <form role="search" id="searchForm">
+            <input id="search" type="search" onChange={event => setQuery(event.target.value)} placeholder="Search..." autoFocus required/>
+          </form>
+          <Inputs.Button 
+            text="Go"
+            className="searchBtn"
+            onClick={()=> SearchQuery()}
+          />
+        </div>
+        
         <div className="msg">
           <NavLink to="/Chat">
             <svg xmlns="http://www.w3.org/2000/svg" height="50" fill="white" class="bi bi-chat-text" viewBox="0 0 16 16">

@@ -266,17 +266,17 @@ const Profile = () =>{
                   <div className="col-md-12">
                     <div className="profile-head">
                       <h3>
-                        {currentUser.fullName}
+                        {currentUser?.fullName}
                       </h3>
                       <p></p>
                       <h6>
-                        {currentUser.position}
+                        {currentUser?.position}
                       </h6>
                       <br/>
-                      {currentUser.roles.includes("mentor")? (
+                      {currentUser?.roles?.includes("mentor")? (
                         <p>Current number Mentee(s) : {currentUser.mentees}</p>
                       ) : ""}
-                      {currentUser.roles.includes("mentee")? (
+                      {currentUser?.roles?.includes("mentee")? (
                         <p>Current number Mentor(s) : {currentUser.mentors}</p>
                       ) : ""}
                     </div>
@@ -286,7 +286,7 @@ const Profile = () =>{
               <div className="row">
                 <div className="col-md-4 skills">
                   <div className="profile-work">
-                    {currentUser.roles.includes("mentee") ? (
+                    {currentUser?.roles?.includes("mentee") ? (
                       <>
                         <h6>To Improve:</h6>
                         <Inputs.DropdownSelect
@@ -297,7 +297,7 @@ const Profile = () =>{
                         />
                       </>
                     ) : ""}
-                    {currentUser.roles.includes("mentor")?(
+                    {currentUser?.roles?.includes("mentor")?(
                       <>
                         <h6>Skills:</h6>
                         <Inputs.DropdownSelect
@@ -311,7 +311,7 @@ const Profile = () =>{
                     <br/>
                     <h6>Interests</h6>
                     <Inputs.Textarea
-                      value={currentUser.interests || ""}
+                      value={currentUser?.interests || ""}
                       onChange={({ target: { value } }) =>
                         handleChange("interests", value)
                       }
@@ -368,7 +368,7 @@ const Profile = () =>{
                         placeholder={currentUser.userType}
                       />
                   </div>
-                  {currentUser.roles.includes("mentor")?(
+                  {currentUser?.roles?.includes("mentor")?(
                     <div class="form-group">
                       <label>Mentee Limit:</label>
                       <Inputs.DropdownSelect
