@@ -1,14 +1,14 @@
 import React from "react"
-import { TextField } from 'react-md'
 import { NavLink } from "react-router-dom"
 import "./styles.scss"
 import Swal from "sweetalert2"
+import { Inputs } from "../../components";
+import { history } from "../../redux/store"
 
 const support = () => {
     
     return (
-        
-        <div className="text-fields">
+        <div className="supportPage">
             <div className="wrapper">
                 <div className="login">
                     <NavLink to="/">
@@ -16,41 +16,39 @@ const support = () => {
                     </NavLink>
                 </div>
             </div>
-            <TextField
+        <div className="texts">
+            <textarea
                 id="floating-email"
                 label="Email Address"
                 placeholder="Enter your email address so we can reach you"
-                className="md-cell md-cell--bottom"
+                className="email"
             />
-            <TextField
+            <textarea
                 id="floating-title"
                 label="Title"
-                lineDirection="center"
                 placeholder="Short description of your problem"
-                className="md-cell md-cell--bottom"
+                className="title"
             />
-            <TextField
+            <textarea
                 id="floating-multiline"
                 label="Description"
-                lineDirection="right"
-                rows={5}
                 placeholder="Describe your problem in detail. We need these to help you!"
-                className="md-cell md-cell--bottom"
+                className="description"
             />
+        </div>
             
-            <NavLink to="/faq"><button className="submit" onClick={buttonClick}>Submit</button></NavLink>
+            <Inputs.Button text="Submit" className="submit" onClick={buttonClick}/>
             
         </div>
     )
 }
 
 function buttonClick() {
-    return (
-        Swal.fire({
-            icon: "success",
-            text: "Success!",
-        })
-    )
+    history.push("/faq")
+    Swal.fire({
+        icon: "success",
+        text: "Success!",
+    })
 }
 
 export default support
