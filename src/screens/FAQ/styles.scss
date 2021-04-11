@@ -16,7 +16,18 @@
   align-self: center;
 }
 
-.mainContent{
+.mainContent {
   width: 60%;
   margin: 0 auto;
+}
+
+.helpButton {
+    width: 20%;
+    margin-top: 100px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }

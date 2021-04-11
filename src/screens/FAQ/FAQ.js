@@ -106,7 +106,7 @@ const FAQ = () => {
         <div className="supportTicket">
           <h4>Still need help?</h4>
           <h4>Send us a support ticket and we will assist you!</h4>
-          <Inputs.Button text="Help" onClick={goToHelp}/>
+          <Inputs.Button text="Help" className="helpButton" onClick={goToHelp}/>
         </div>
       </div>
     </>
