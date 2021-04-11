@@ -61,6 +61,7 @@
   justify-content: space-between;
   border-radius: 1rem;
   width: 80%;
+  min-width: 350px;
   height: 110px;
   overflow: hidden;
   background-color: rgba(ghostwhite, 0.35);
@@ -87,25 +88,37 @@
     }
   }
   .roleTags {
-    width: 190px;
+    width: 30%;
+    min-width: 200px;
     li {
       display: inline-block;
       margin-right: 5px;
     }
   }
 
-  .skillsTags li {
-    background-color: aquamarine;
-    color: #202025;
+  .skillsTags {
+    width: 50%;
+    li {
+      background-color: aquamarine;
+      color: #202025;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 
-  .improveTags li {
-    background-color: crimson;
+  .improveTags {
+    width: 50%;
+    li {
+      background-color: crimson;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 }
 
 .catagories,
-.connectAndMentorBtn {
+.connectAndMentorBtn,
+.interestsSection {
   display: flex;
   width: 80%;
   margin: 0 auto;
@@ -113,6 +126,10 @@
   .space {
     margin: 0 20px;
   }
+}
+
+.interestsSection{
+  margin-top: 20px;
 }
 
 .profileCard:hover,
@@ -142,5 +159,6 @@
     padding: 5px;
     outline: none;
     width: 60%;
+    min-width: 100px;
   }
 }

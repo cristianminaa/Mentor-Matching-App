@@ -44,7 +44,7 @@ export const usersData = [
     maxNumberOfMentees: 3,
     skills: ["Java","Python","Web Development","Retail/Sales"],
     toImprove: ["Communication"],
-    interests: [],
+    interests: ["Gaming"],
     registrationDate: "",
     profilePicture: "https://bootdey.com/img/Content/avatar/avatar7.png",
   },

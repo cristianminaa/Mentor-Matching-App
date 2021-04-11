@@ -49,9 +49,9 @@ const Home = () => {
 
   const displaySuggestedMentors=()=>{
     return(
-      usersData?.map(({fullName, position, location, profilePicture, roles, skills, toImprove, exForces, userType}, i) => {
+      usersData?.map(({fullName, position, location, profilePicture, roles, skills, toImprove, exForces, userType, interests}, i) => {
         var idVal = `searchCard-${i}`
-        if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof userType!=='undefined' && typeof exForces!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
+        if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof interests!=='undefined' && typeof userType!=='undefined' && typeof exForces!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
           return(
             <div className="row profileCard searchCard" key={i} id={idVal} onClick={()=>({})}>
               <div className="profileCardContent">
@@ -67,7 +67,6 @@ const Home = () => {
               </div>
 
               <div className="profileCardContent roleTags">
-                {/* <h6>Roles:</h6> */}
                 {roles?.map((role, i) => <li key={i}>{role}</li>)}
                 {exForces? <li>Ex Forces</li> : ""}
                 {<li>{userType}</li>}
@@ -80,6 +79,12 @@ const Home = () => {
                 <div className="profileCardContent improveTags">
                   <h6>To Improve:</h6>
                   {toImprove.length>0? toImprove?.map((toImprove, i) => <li key={i}>{toImprove}</li>) : ""}
+                </div>
+              </div>
+              <div className="interestsSection">
+                <div className="profileCardContent">
+                  <h6>Interests:</h6>
+                  {interests.length>0? (interests?.map((interest, i) => <li key={i}>{interest}</li>)) : ""}
                 </div>
               </div>
               <div className="connectAndMentorBtn">
