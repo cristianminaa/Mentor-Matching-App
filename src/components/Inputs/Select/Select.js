@@ -2,7 +2,7 @@ import React from "react"
 import Select from "react-select"
 import "./styles.scss"
 
-const DropdownSelect = ({ defaultValue, options, onChange, placeholder }) => {
+const DropdownSelect = ({ defaultValue, options, onChange, placeholder, styles }) => {
   return (
     <Select
       isMulti
@@ -18,6 +18,7 @@ const DropdownSelect = ({ defaultValue, options, onChange, placeholder }) => {
           border: "1px solid rgba(0, 52, 112, 0.3)",
           borderRadius: "6px",
           margin: "10px 0",
+          minWidth: "150px"
         }),
         option: (styles, { data }) => ({
           ...styles,

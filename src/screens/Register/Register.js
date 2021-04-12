@@ -53,8 +53,8 @@ const Register = () => {
       })
       return false
     }
-    if (!user?.toImprove && !user?.skills) {
-      Swal.fire({ icon: "error", title: "Please choose at least on category" })
+    if (!user?.toImprove || !user?.skills) {
+      Swal.fire({ icon: "error", title: "Please choose at least one skill and improvement" })
       return false
     }
     return true
@@ -157,6 +157,7 @@ const Register = () => {
                     options={[{label: 1},{label: 2},{label: 3},{label: 4},{label: 5}]}
                     onChange={(value) => handleChange("maxNumberOfMentees", value)}
                     placeholder="Max number of mentees: "
+                    styles="background-color: red"
                   />
                 )}
               </div>
@@ -174,21 +175,18 @@ const Register = () => {
                   placeholderText="Date of Birth:"
                 />
               </div>
-              {user?.roles?.includes("mentee") ? (
-                <Inputs.DropdownSelect
-                  defaultValue={user?.toImprove || []}
-                  options={categoriesData}
-                  onChange={(value) => handleChange("toImprove", value)}
-                  placeholder="Categories for improvement:"
-                />
-              ) : (
-                <Inputs.DropdownSelect
-                  defaultValue={user?.skills || []}
-                  options={categoriesData}
-                  onChange={(value) => handleChange("skills", value)}
-                  placeholder="Skill to provide:"
-                />
-              )}
+              <Inputs.DropdownSelect
+                defaultValue={user?.toImprove || []}
+                options={categoriesData}
+                onChange={(value) => handleChange("toImprove", value)}
+                placeholder="Categories for improvement:"
+              />
+              <Inputs.DropdownSelect
+                defaultValue={user?.skills || []}
+                options={categoriesData}
+                onChange={(value) => handleChange("skills", value)}
+                placeholder="Skill to provide:"
+              />
               <Inputs.Textarea
                 value={user?.interests || ""}
                 onChange={({ target: { value } }) =>

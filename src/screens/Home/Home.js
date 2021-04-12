@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="interestsSection">
-                <div className="profileCardContent">
+                <div className="profileCardContent interestsTags">
                   <h6>Interests:</h6>
                   {interests.length>0? (interests?.map((interest, i) => <li key={i}>{interest}</li>)) : ""}
                 </div>

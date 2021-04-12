@@ -147,7 +147,6 @@ const Profile = () =>{
   const mentorRegistration = () =>{
     Swal.fire({
       title: 'Are you sure you want to become a Mentor?',
-      text: 'You will be asked to add your skills once approved.',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#1daded',
@@ -321,28 +320,21 @@ const Profile = () =>{
               <div className="row">
                 <div className="col-md-4 skills">
                   <div className="profile-work">
-                    {currentUser?.roles?.includes("mentee") ? (
-                      <>
-                        <h6>To Improve:</h6>
-                        <Inputs.DropdownSelect
-                          // defaultValue={currentUser.toImprove || []}
-                          options={categoriesData}
-                          onChange={(value) => handleChange("toImprove", value)}
-                          placeholder="Categories for improvement:"
-                        />
-                      </>
-                    ) : ""}
-                    {currentUser?.roles?.includes("mentor")?(
-                      <>
-                        <h6>Skills:</h6>
-                        <Inputs.DropdownSelect
-                          defaultValue={currentUser.skills || []}
-                          options={[categoriesData]}
-                          onChange={(value) => handleChange("skills", value)}
-                          placeholder="Skill to provide:"
-                        />
-                      </>
-                    ):""}
+                    <h6>To Improve:</h6>
+                    <Inputs.DropdownSelect
+                      defaultValue={currentUser.toImprove || []}
+                      options={categoriesData}
+                      onChange={(value) => handleChange("toImprove", value)}
+                      placeholder="Categories for improvement:"
+                    />
+                    <br/>
+                    <h6>Skills:</h6>
+                    <Inputs.DropdownSelect
+                      defaultValue={currentUser.skills || []}
+                      options={categoriesData}
+                      onChange={(value) => handleChange("skills", value)}
+                      placeholder="Skill to provide:"
+                    />
                     <br/>
                     <h6>Interests</h6>
                     <Inputs.Textarea

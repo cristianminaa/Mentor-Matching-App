@@ -128,8 +128,12 @@
   }
 }
 
-.interestsSection{
+.interestsSection {
   margin-top: 20px;
+  li {
+    background: linear-gradient(40deg, #1541c8 0, #8820bb 100%);
+    color: white;
+  }
 }
 
 .profileCard:hover,
