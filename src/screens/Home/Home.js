@@ -67,9 +67,9 @@ const Home = () => {
               </div>
 
               <div className="profileCardContent roleTags">
-                {roles?.map((role, i) => <li key={i}>{role}</li>)}
+                {roles?.map((role, i) => <li key={i} style={{textTransform: 'capitalize'}}>{role}</li>)}
                 {exForces? <li>Ex Forces</li> : ""}
-                {<li>{userType}</li>}
+                {<li style={{textTransform: 'capitalize'}}>{userType}</li>}
               </div>
               <div className="catagories">
                 <div className="profileCardContent skillsTags">

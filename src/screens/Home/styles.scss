@@ -78,7 +78,9 @@
     margin-bottom: 10px;
     padding: 0px 10px;
     li {
-      background-color: #1daded;
+      // background-color: #1daded;
+      background: linear-gradient(40deg, #1541c8 0, #8820bb 100%);
+      color: white;
       border-radius: 1rem;
       width: fit-content;
       height: fit-content;
@@ -99,7 +101,7 @@
   .skillsTags {
     width: 50%;
     li {
-      background-color: aquamarine;
+      background: linear-gradient(40deg, rgb(127, 255, 176) 0, rgb(127, 236, 255) 100%);
       color: #202025;
       display: inline-block;
       margin-right: 5px;
@@ -109,10 +111,14 @@
   .improveTags {
     width: 50%;
     li {
-      background-color: crimson;
+      background: linear-gradient(40deg, rgb(220, 20, 60) 0, rgb(220, 93, 20) 100%);
       display: inline-block;
       margin-right: 5px;
     }
+  }
+
+  .interestsTags li {
+    background: linear-gradient(40deg, rgb(29, 173, 237) 0, rgb(29, 77, 237) 100%);
   }
 }
 
@@ -131,7 +137,7 @@
 .interestsSection {
   margin-top: 20px;
   li {
-    background: linear-gradient(40deg, #1541c8 0, #8820bb 100%);
+    background: #1daded;
     color: white;
   }
 }
