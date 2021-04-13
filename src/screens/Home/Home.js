@@ -369,11 +369,11 @@ const Home = () => {
               required
             />
           </form>
-          <Inputs.Button
+          {/*<Inputs.Button
             text="Go"
             className="searchBtn"
             onClick={() => SearchQuery()}
-          />
+          />*/}
         </div>
 
         <div className="msg">
