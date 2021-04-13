@@ -2,11 +2,10 @@ import React from "react"
 import { Router, Route, Switch, Redirect, withRouter } from "react-router-dom"
 import { isAuthenticated } from "../../utilities"
 import { Home, Login, Register, FAQ, Profile, Chat, Support } from "../../screens"
-import { Header } from "../"
 import { history } from "../../redux/store"
 
 const PrivateRoute = ({ children, ...rest }) => {
-  return ( 
+  return (
     <Route
       render={({ location }) =>
         isAuthenticated() ? (

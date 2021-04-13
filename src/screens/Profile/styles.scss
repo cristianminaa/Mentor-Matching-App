@@ -78,6 +78,12 @@
   }
 }
 
+.emp-profile .input-container-tabs {
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+
 .scrollableConnections,
 .scrollableMentors,
 .scrollableMentees {
@@ -122,4 +128,3 @@
   align-items: center;
   margin-top: 20px;
 }
-

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Swal from "sweetalert2"
 import DatePicker from "react-datepicker"
@@ -6,8 +6,6 @@ import "react-datepicker/dist/react-datepicker.css"
 import { NavLink } from "react-router-dom"
 import { Inputs } from "../../components"
 import { addUser } from "../../redux/actions"
-import { history } from "../../redux/store"
-import { isAuthenticated } from "../../utilities"
 import { categoriesData } from "../../data"
 import "./styles.scss"
 
@@ -16,10 +14,7 @@ const Register = () => {
   const [user, setUser] = useState({})
   const handleChange = (field, value) => setUser({ ...user, [field]: value })
 
-  const { currentUser } = useSelector((state) => state.users)
-  useEffect(() => {
-    isAuthenticated() && history.push("/")
-  }, [currentUser])
+  const { allUsers } = useSelector((state) => state.users)
 
   const dispatch = useDispatch()
   const handleRegister = () =>
@@ -28,20 +23,32 @@ const Register = () => {
         ...user,
         registrationDate: new Date(),
         interests: user?.interests?.split(", "),
-        profilePicture: ""
+        profilePicture: "",
       })
     )
 
   const verifyStep = (step) => {
-    const { firstName, lastName, email, password, roles, phoneNumber, dateOfBirth } = user
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      roles,
+      phoneNumber,
+      dateOfBirth,
+    } = user
     if (!firstName || !lastName || !email || !password || !roles) {
       Swal.fire({ icon: "error", title: "Missing details" })
       return false
     } else {
-      handleChange("fullName", firstName+" "+lastName)
+      handleChange("fullName", firstName + " " + lastName)
     }
     if (!/fdm.com$/.test(email)) {
       Swal.fire({ icon: "error", title: "Please enter a FDM email!" })
+      return false
+    }
+    if (allUsers?.map(({ email }) => email)?.includes(email)) {
+      Swal.fire({ icon: "error", title: "Existing user!" })
       return false
     }
     if (step === 1) return true
@@ -54,7 +61,10 @@ const Register = () => {
       return false
     }
     if (!user?.toImprove || !user?.skills) {
-      Swal.fire({ icon: "error", title: "Please choose at least one skill and improvement" })
+      Swal.fire({
+        icon: "error",
+        title: "Please choose at least one skill and improvement",
+      })
       return false
     }
     return true
@@ -81,7 +91,7 @@ const Register = () => {
                 }
                 placeholder="Last Name: "
               />
-              
+
               <Inputs.Text
                 value={user?.email || ""}
                 onChange={({ target: { value } }) =>
@@ -152,10 +162,11 @@ const Register = () => {
                   placeholder="Position: "
                 />
                 {user?.roles?.includes("mentor") && (
-                  <Inputs.DropdownSelect
-                    defaultValue={user?.maxNumberOfMentees || 1}
-                    options={[{label: 1},{label: 2},{label: 3},{label: 4},{label: 5}]}
-                    onChange={(value) => handleChange("maxNumberOfMentees", value)}
+                  <Inputs.Text
+                    defaultValue={user?.maxNumberOfMentees || ""}
+                    onChange={(value) =>
+                      handleChange("maxNumberOfMentees", value)
+                    }
                     placeholder="Max number of mentees: "
                     styles="background-color: red"
                   />

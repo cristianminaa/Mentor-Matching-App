@@ -322,15 +322,16 @@ const Profile = () =>{
                   <div className="profile-work">
                     <h6>To Improve:</h6>
                     <Inputs.DropdownSelect
-                      defaultValue={currentUser.toImprove || []}
+                      defaultValue={
+                        categoriesData.filter(({value})=>currentUser.toImprove?.includes(value)) || []}
                       options={categoriesData}
-                      onChange={(value) => handleChange("toImprove", value)}
+                      onChange={(value) => console.log(value)}
                       placeholder="Categories for improvement:"
                     />
                     <br/>
                     <h6>Skills:</h6>
                     <Inputs.DropdownSelect
-                      defaultValue={currentUser.skills || []}
+                      defaultValue={categoriesData.filter(({value})=>currentUser.skills?.includes(value)) || []}
                       options={categoriesData}
                       onChange={(value) => handleChange("skills", value)}
                       placeholder="Skill to provide:"
@@ -338,7 +339,7 @@ const Profile = () =>{
                     <br/>
                     <h6>Interests</h6>
                     <Inputs.Textarea
-                      value={currentUser?.interests || ""}
+                      value={currentUser?.interests.join(", ") || ""}
                       onChange={({ target: { value } }) =>
                         handleChange("interests", value)
                       }
@@ -391,14 +392,19 @@ const Profile = () =>{
                         type="text"
                         inputClassName="form-control"
                         placeholder={currentUser.email}
+                        disabled
                       />
                   </div>
                   <div class="form-group">
                     <label>User Type:</label>
-                      <Inputs.DropdownSelect
-                        options={[{label: "employee"},{label: "alumni"}]}
-                        onChange={(value) => handleChange("userType", value)}
-                        placeholder={currentUser.userType}
+                      <Inputs.Tabs
+                        options={[
+                          { value: "mentee", label: "Mentee" },
+                          { value: "mentor", label: "Mentor" },
+                          { value: "admin", label: "Admin" },
+                        ]}
+                        value={currentUser.roles}
+                        onClick={() => {}}
                       />
                   </div>
                   {currentUser?.roles?.includes("mentor")?(

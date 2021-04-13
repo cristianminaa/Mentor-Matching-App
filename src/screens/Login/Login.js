@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { logIn } from "../../redux/actions"
 import { Inputs } from "../../components"
-import { history } from "../../redux/store"
-import { isAuthenticated } from "../../utilities"
 import "./styles.scss"
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
-  const { currentUser } = useSelector((state) => state.users)
-  useEffect(() => {
-    isAuthenticated() && history.push("/")
-  }, [currentUser])
 
   const dispatch = useDispatch()
   const handleLogin = () => dispatch(logIn({ email, password }))

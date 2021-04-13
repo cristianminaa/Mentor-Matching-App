@@ -17,12 +17,15 @@ const initialState = {
 const users = (state = initialState, { type, payload }) => {
   switch (type) {
     case usersActions.LOG_IN:
+      history.push("/")
       return { ...state, currentUser: getUser(state.allUsers, payload) }
     case usersActions.LOG_OUT:
       localStorage.removeItem("user")
       history.push("/")
       return { ...state, currentUser: {} }
     case usersActions.ADD_USER:
+      localStorage.setItem("user", JSON.stringify(payload))
+      history.push("/")
       return {
         ...state,
         allUsers: [...state.allUsers, payload],
