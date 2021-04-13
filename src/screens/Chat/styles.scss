@@ -1,88 +1,148 @@
 //$spaceLeft : 10%;
+.wrapper {
+  height: 15vh;
+}
+.containerChat {
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.navbarTop {
+  background-color: #202025;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.conversationsMenuLeft {
+  width: 18%; //19rem
+  height: 100%;
+  background-color: rgb(209, 206, 206);
+  // position: absolute;
+  // bottom: 5rem;
+  // top: 3.1rem;
+  // left: 7%;
+  h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    //font-weight: bold;
+    padding: 5%;
+  }
+  border-radius: 0px 0px 0px 20px;
+  overflow-y: scroll;
+}
+.main {
+  width: 60%;
+  // height: 40rem;
+  height: 100%;
+  background-color: #f3f3f3;
+  // position: absolute;
 
-.containerChat{
-    width: 100%;
-    height: 100%;
+  //left: 19rem;
+  border-radius: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px 0px 20px 0px;
+  .message {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #000;
+    background-color: #e6e7ec;
+    max-width: 600px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     position: relative;
-    align-items: center;
-}
-.navbarTop{
-    background-color: #202025;
-    padding-top: 10px;
-    padding-bottom: 5npmpx;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.conversationsMenuLeft{
-    width: 18%;//19rem
-    height: 1505%;
-    background-color:rgb(209, 206, 206);
-    position: absolute;
-    bottom: 5rem;
-    top: 3.1rem;
-    left: 7%;
-    h6{
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-        //font-weight: bold;
-        padding: 5%;
+    margin: 15px 40px;
+    word-break: break-all;
+    direction: ltr;
+    &:after {
+      content: "";
+      width: 20px;
+      height: 12px;
+      display: block;
+      background-image: url("https://stageviewcincyshakes.firebaseapp.com/icon-gray-message.e6296433d6a72d473ed4.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      bottom: -2px;
+      left: -5px;
     }
-}
-.main{
-    width: 50%;
-    height: 40rem;
-    background-color: f3f3f3;
-    position: absolute;
-    //left: 19rem;
-    border-radius: 0px 20px;
-
-}
-.barBottom{
-    width: 50%;
-    height: 10rem;
-    position: absolute;
-    //left: 19rem;
-    top:40.1rem;
-    justify-content: center;
-    border-radius: 0px 0px 20px 0px;
-    .textArea{
-        width: 90%;
+    &.right {
+      color: #fff;
+      margin-left: auto;
+      background-color: #00a9de;
+      &:after {
+        width: 19px;
+        height: 13px;
+        left: inherit;
+        right: -5px;
+        background-image: url("https://stageviewcincyshakes.firebaseapp.com/icon-blue-message.2be55af0d98ee2864e29.png");
+      }
     }
+  }
 }
-.buttonSend{
-    width:5rem;
+.barBottom {
+  margin-top: auto;
+  height: 5rem;
+  // position: absolute;
+  //left: 19rem;
+  // top:40.1rem;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  justify-content: center;
+  border-radius: 0px 0px 20px 0px;
+  .textArea {
+    width: 90%;
+  }
+  .buttonSend {
+    min-width: 200px;
+    margin-left: 40px;
+  }
 }
 
-footer{
-    width: 99rem;
-    height: 3rem;
-    background-color: white;
-    position: absolute;
-    top: 52rem;
+
+footer {
+  width: 99rem;
+  height: 3rem;
+  background-color: white;
+  position: absolute;
+  top: 52rem;
 }
 
-.containerConversation{
-    background-color: white;
-    height: 5rem;
+.containerConversation {
+  background-color: white;
+  height: 5rem;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 8px;
+  transition: background-color 0.5s ease;
+  img {
+    height: 35%;
+    width: 35%;
     position: relative;
-    border-radius: 10px;
-    margin-top: 0.5%;
-    img{
-        height:35%;
-        width:35%;
-        position: relative;
-        top: 1.5rem;
-        left: 0;
-    }
-    p{
-        margin-left: 45%;
-    }
+    top: 1.5rem;
+    left: 0;
+  }
+  p {
+    margin-left: 45%;
+  }
 }
-.containerConversation:hover{
-    background-color: rgb(121, 121, 255);
+.containerConversation:hover {
+  background-color: rgba(121, 121, 255, 0.3);
 }
-.scrollableConversations{
-    overflow-y: scroll;
-    height: 90%;
+.containerConversation.selected {
+  background-color: rgb(121, 121, 255);
+}
+.scrollableConversations {
+  // overflow-y: scroll;
+  // height: 100%;
 }
