@@ -61,7 +61,7 @@ export const usersData = [
     position: "",
     location: "",
     dateOfBirth: "",
-    roles: ["mentee", "mentor"],
+    roles: ["mentor"],
     userType: "employee",
     exForces: true,
     mentees: 2,
