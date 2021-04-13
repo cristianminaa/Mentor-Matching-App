@@ -339,7 +339,7 @@ const Profile = () =>{
                     <br/>
                     <h6>Interests</h6>
                     <Inputs.Textarea
-                      value={currentUser?.interests.join(", ") || ""}
+                      value={currentUser?.interests?.join(", ") || ""}
                       onChange={({ target: { value } }) =>
                         handleChange("interests", value)
                       }
