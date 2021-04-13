@@ -49,7 +49,7 @@ const Home = () => {
 
   const displaySuggestedMentors=()=>{
     return(
-      usersData?.map(({fullName, position, location, profilePicture, roles, skills, toImprove, exForces, userType, interests}, i) => {
+      usersData?.filter(user=>user?.fullName?.toLowerCase()?.includes(query?.toLowerCase()))?.map(({fullName, position, location, profilePicture, roles, skills, toImprove, exForces, userType, interests}, i) => {
         var idVal = `searchCard-${i}`
         if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof interests!=='undefined' && typeof userType!=='undefined' && typeof exForces!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
           return(
