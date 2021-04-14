@@ -170,7 +170,8 @@ const Profile = () =>{
           <h6 className="editTitle">Manage Mentors</h6>
           <div className="scrollableMentors">
             {
-              users?.map(({fullName, position, location, profilePicture, roles}, i) => {
+              users?.map(({fullName, position, location, profilePicture, roles, }, i) => {
+                if (currentUser?.newUser) return null
                 var idVal = `mentorCard-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentor")) {
                   return(
@@ -200,6 +201,7 @@ const Profile = () =>{
             <div className="scrollableMentees">
               {
                 users?.map(({fullName, position, location, profilePicture, roles}, i) => {
+                  if (currentUser?.newUser) return null
                   var idVal = `menteeCard-${i}`
                   if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' && typeof roles !=='undefined' && roles.includes("mentee")) {
                     return(
@@ -231,6 +233,7 @@ const Profile = () =>{
           <div className="scrollableConnections ">
             {
               users?.map(({fullName, position, location, profilePicture}, i) => {
+                if (currentUser?.newUser) return null
                 var idVal = `conCard-${i}`
                 if (typeof fullName!=='undefined' && fullName!== currentUser.fullName && typeof position!=='undefined' && typeof location!=='undefined' && typeof profilePicture!=='undefined' ) {
                   return(

@@ -87,7 +87,7 @@ const Home = () => {
         i
       ) => {
         var idVal = `searchCard-${i}`
-        if (!query && roles.includes("mentor")) return null
+        if (!query && !roles.includes("mentor")) return null
         if (fullName !== currentUser.fullName) {
           return (
             <div className="row profileCard searchCard" key={i} id={idVal}>
