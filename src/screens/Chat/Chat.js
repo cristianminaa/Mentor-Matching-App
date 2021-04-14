@@ -7,22 +7,26 @@ import { useSelector } from "react-redux"
 
 const Chat = () => {
   const responses = {
-    "Hello Jay": "Hello Danail",
+    "Hello Jay": "Hi there",
+    "How about meeting today at 4pm?":"Yes, perfect",
   }
 
   const [chats, setChats] = useState([
     [
-      { message: "oldChat 1" },
-      { message: "oldChat 1 " },
-      { message: "oldChat 1" },
+      { message: "Hello", senderIsNotMe: true},
+      { message: "How is the presentation going?", senderIsNotMe: true},
+      { message: "Hi, all good. Almost finishing", senderIsNotMe: false},
     ],
     [
-      { message: "oldChat 2" },
-      { message: "oldChat 2 " },
-      { message: "oldChat 2" },
+      { message: "Hi", senderIsNotMe: true },
+      { message: "What would you say is the best resource for time-managent", senderIsNotMe: true },
+      { message: "Sure, there are defenitely plenty of them", senderIsNotMe: false },
+      { message: "but I personally enjoy reading 'Getting things done' by David Allen", senderIsNotMe: false },
+      { message: "Thank you", senderIsNotMe: true },
+      
     ],
   ])
-  const userNames = ["Jay", "Denis"]
+  const userNames = ["Jay Patel", "Denis Grigoryev"]
   const [value, setValue] = useState("")
   const [selectedConversation, setSelecetedConversation] = useState(0)
   const prevSelected = useRef(selectedConversation)
@@ -97,6 +101,8 @@ const Chat = () => {
         </div>
 
         <div className="main border border-dark">
+          
+          <div className="mainTexts">
           {chat?.map(({ message, senderIsNotMe }, i) => (
             <p
               key={`message-${i}`}
@@ -105,6 +111,7 @@ const Chat = () => {
               {message}
             </p>
           ))}
+          </div>
           <center className="barBottom bg-secondary">
             <p></p>
             <Inputs.Text

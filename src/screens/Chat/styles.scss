@@ -41,13 +41,15 @@
   // height: 40rem;
   height: 100%;
   background-color: #f3f3f3;
-  // position: absolute;
-
-  //left: 19rem;
   border-radius: 0px 20px;
   display: flex;
   flex-direction: column;
   border-radius: 0px 0px 20px 0px;
+  
+  .mainTexts{
+    overflow: scroll;
+    height: 100%;
+  }
   .message {
     font-size: 18px;
     padding: 10px 20px;
