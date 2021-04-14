@@ -12,7 +12,9 @@ const Home = () => {
   const [filterExForces, setFilterExforces] = useState()
   const [query, setQuery] = useState("")
 
-  const { currentUser } = useSelector((state) => state.users)
+  const { currentUser, allUsers: usersData } = useSelector(
+    (state) => state.users
+  )
   const displayUser = (user) => {
     const userDetails = []
     let i = 0

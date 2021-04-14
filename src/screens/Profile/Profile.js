@@ -9,9 +9,7 @@ import Swal from "sweetalert2"
 
 const Profile = () => {
   const dispatch = useDispatch()
-  const { currentUser, allUsers: usersData } = useSelector(
-    (state) => state.users
-  )
+  const { currentUser } = useSelector((state) => state.users)
   const [user, setUser] = useState({})
   const [localInterests, setLocalInterest] = useState("")
   const handleChange = (field, value) => setUser({ ...user, [field]: value })
