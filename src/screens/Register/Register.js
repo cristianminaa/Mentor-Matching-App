@@ -24,6 +24,7 @@ const Register = () => {
         registrationDate: new Date(),
         interests: user?.interests?.split(", "),
         profilePicture: "",
+        newUser: true,
       })
     )
 
