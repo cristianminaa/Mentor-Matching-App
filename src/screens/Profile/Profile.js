@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { logOut } from "../../redux/actions"
 import "./styles.scss"
 import { NavLink } from "react-router-dom"
-import { categoriesData } from "../../data"
+import { categoriesData, usersData } from "../../data"
 import Swal from "sweetalert2"
 
 const Profile = () => {

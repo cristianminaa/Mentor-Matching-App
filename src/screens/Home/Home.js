@@ -4,7 +4,7 @@ import "./styles.scss"
 import { NavLink } from "react-router-dom"
 import { Inputs } from "../../components"
 import Swal from "sweetalert2"
-import { usersData } from "../../data"
+// import { usersData } from "../../data"
 
 const Home = () => {
   const [filterRole, setFilterRole] = useState("")
