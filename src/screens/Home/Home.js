@@ -10,6 +10,7 @@ const Home = () => {
   const [filterRole, setFilterRole] = useState("")
   const [filterType, setFilterType] = useState("")
   const [filterExForces, setFilterExforces] = useState()
+  const [query, setQuery] = useState("")
 
   const { currentUser } = useSelector((state) => state.users)
   const displayUser = (user) => {
@@ -50,151 +51,125 @@ const Home = () => {
     })
   }
 
+  const filteredUsers = usersData
+    ?.filter((user) =>
+      user?.fullName?.toLowerCase()?.includes(query?.toLowerCase())
+    )
+    ?.filter(({ roles }) => {
+      if (!filterRole || filterRole === "Both") return true
+      return roles?.includes(filterRole)
+    })
+    ?.filter(({ userType }) => {
+      if (!filterType || filterType === "All") return true
+      return filterType === userType
+    })
+    ?.filter(({ exForces }) => {
+      if (!filterExForces) return true
+      if (filterExForces === "true" && exForces) return true
+      if (filterExForces === "false" && !exForces) return true
+      return false
+    })
   const displaySuggestedMentors = () => {
-    return usersData
-      ?.filter((user) =>
-        user?.fullName?.toLowerCase()?.includes(query?.toLowerCase())
-      )
-      ?.filter(({ roles }) => {
-        if (!filterRole || filterRole === "Both") return true
-        return roles?.includes(filterRole)
-      })
-      ?.filter(({ userType }) => {
-        if (!filterType || filterType === "All") return true
-        return filterType === userType
-      })
-      ?.filter(({ exForces }) => {
-        if (!filterExForces) return true
-        if (filterExForces === "true" && exForces) return true
-        if (filterExForces === "false" && !exForces) return true
-        return false
-      })
-      ?.map(
-        (
-          {
-            fullName,
-            position,
-            location,
-            profilePicture,
-            roles,
-            skills,
-            toImprove,
-            exForces,
-            userType,
-            interests,
-          },
-          i
-        ) => {
-          var idVal = `searchCard-${i}`
-          if (
-            typeof fullName !== "undefined" &&
-            fullName !== currentUser.fullName &&
-            typeof position !== "undefined" &&
-            typeof location !== "undefined" &&
-            typeof interests !== "undefined" &&
-            typeof userType !== "undefined" &&
-            typeof exForces !== "undefined" &&
-            typeof profilePicture !== "undefined" &&
-            typeof roles !== "undefined" &&
-            roles.includes("mentor")
-          ) {
-            return (
-              <div
-                className="row profileCard searchCard"
-                key={i}
-                id={idVal}
-                onClick={() => ({})}
-              >
-                <div className="profileCardContent">
-                  {profilePicture === "" ? (
-                    <img
-                      src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                      style={{ height: 100, width: 100 }}
-                      alt="User-Profile"
-                    />
-                  ) : (
-                    <img
-                      src={profilePicture}
-                      style={{ height: 100, width: 100 }}
-                      alt="User-Profile"
-                    />
-                  )}
-                </div>
-                <div className="profileCardContent">
-                  <h5>{fullName}</h5>
-                  <h6>{position}</h6>
-                  <p>{location}</p>
-                </div>
+    return filteredUsers?.map(
+      (
+        {
+          fullName,
+          position,
+          location,
+          profilePicture,
+          roles,
+          skills,
+          toImprove,
+          exForces,
+          userType,
+          interests,
+        },
+        i
+      ) => {
+        var idVal = `searchCard-${i}`
+        if (!query && roles.includes("mentor")) return null
+        if (fullName !== currentUser.fullName) {
+          return (
+            <div className="row profileCard searchCard" key={i} id={idVal}>
+              <div className="profileCardContent">
+                <img
+                  src={
+                    profilePicture ||
+                    "https://bootdey.com/img/Content/avatar/avatar7.png"
+                  }
+                  style={{ height: 100, width: 100 }}
+                  alt="User-Profile"
+                />
+              </div>
+              <div className="profileCardContent">
+                <h5>{fullName}</h5>
+                <h6>{position}</h6>
+                <p>{location}</p>
+              </div>
 
-                <div className="profileCardContent roleTags">
-                  {roles?.map((role, i) => (
-                    <li key={i} style={{ textTransform: "capitalize" }}>
-                      {role}
-                    </li>
+              <div className="profileCardContent roleTags">
+                {roles?.map((role, i) => (
+                  <li key={i} style={{ textTransform: "capitalize" }}>
+                    {role}
+                  </li>
+                ))}
+                {exForces && <li>Ex Forces</li>}
+                <li style={{ textTransform: "capitalize" }}>{userType}</li>
+              </div>
+              <div className="catagories">
+                <div className="profileCardContent skillsTags">
+                  <h6>Skills:</h6>
+                  {skills?.map((skill, i) => (
+                    <li key={i}>{skill}</li>
                   ))}
-                  {exForces ? <li>Ex Forces</li> : ""}
-                  {<li style={{ textTransform: "capitalize" }}>{userType}</li>}
                 </div>
-                <div className="catagories">
-                  <div className="profileCardContent skillsTags">
-                    <h6>Skills:</h6>
-                    {skills.length > 0
-                      ? skills?.map((skill, i) => <li key={i}>{skill}</li>)
-                      : ""}
-                  </div>
-                  <div className="profileCardContent improveTags">
-                    <h6>To Improve:</h6>
-                    {toImprove.length > 0
-                      ? toImprove?.map((toImprove, i) => (
-                          <li key={i}>{toImprove}</li>
-                        ))
-                      : ""}
-                  </div>
-                </div>
-                <div className="interestsSection">
-                  <div className="profileCardContent interestsTags">
-                    <h6>Interests:</h6>
-                    {interests.length > 0
-                      ? interests?.map((interest, i) => (
-                          <li key={i}>{interest}</li>
-                        ))
-                      : ""}
-                  </div>
-                </div>
-                <div className="connectAndMentorBtn">
-                  <Inputs.Button
-                    text="Connect"
-                    className="connectBtn"
-                    onClick={() => {
-                      connectUser()
-                    }}
-                  />
-                  <div className="space"></div>
-                  <Inputs.Button
-                    text="Request Mentorship"
-                    className="mentorshipBtn"
-                    onClick={() => {
-                      mentorRequestUser()
-                    }}
-                  />
-                  <div className="space"></div>
-                  {currentUser.roles?.includes("mentor") ? (
-                    <Inputs.Button
-                      text="Offer Mentorship"
-                      className="mentorshipOfferBtn"
-                      onClick={() => {
-                        mentorOfferUser()
-                      }}
-                    />
-                  ) : (
-                    ""
-                  )}
+                <div className="profileCardContent improveTags">
+                  <h6>To Improve:</h6>
+                  {toImprove?.map((toImprove, i) => (
+                    <li key={i}>{toImprove}</li>
+                  ))}
                 </div>
               </div>
-            )
-          }
+              <div className="interestsSection">
+                <div className="profileCardContent interestsTags">
+                  <h6>Interests:</h6>
+                  {interests?.map((interest, i) => (
+                    <li key={i}>{interest}</li>
+                  ))}
+                </div>
+              </div>
+              <div className="connectAndMentorBtn">
+                <Inputs.Button
+                  text="Connect"
+                  className="connectBtn"
+                  onClick={() => {
+                    connectUser()
+                  }}
+                />
+                <div className="space"></div>
+                <Inputs.Button
+                  text="Request Mentorship"
+                  className="mentorshipBtn"
+                  onClick={() => {
+                    mentorRequestUser()
+                  }}
+                />
+                <div className="space"></div>
+                {currentUser.roles?.includes("mentor") && (
+                  <Inputs.Button
+                    text="Offer Mentorship"
+                    className="mentorshipOfferBtn"
+                    onClick={() => {
+                      mentorOfferUser()
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          )
         }
-      )
+      }
+    )
   }
 
   const DisplayProfileCard = () => {
@@ -211,7 +186,6 @@ const Home = () => {
   }
 
   //Initialise query from form input
-  const [query, setQuery] = useState("")
   //Declare array which stores index of usersData found from search
   var searchResults = []
 
@@ -366,7 +340,6 @@ const Home = () => {
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search..."
               autoFocus
-              required
             />
           </form>
           {/*<Inputs.Button
@@ -449,6 +422,13 @@ const Home = () => {
             setFilterExforces("")
           }}
         />*/}
+      </div>
+      <div className="text-homepage">
+        {!query
+          ? "Suggested mentors"
+          : filteredUsers.length
+          ? "Search result..."
+          : "No results found"}
       </div>
       <div className="profile">{DisplayProfileCard()}</div>
     </>

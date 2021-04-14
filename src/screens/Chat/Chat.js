@@ -23,7 +23,7 @@ const Chat = () => {
       { message: "Sure, there are defenitely plenty of them", senderIsNotMe: false },
       { message: "but I personally enjoy reading 'Getting things done' by David Allen", senderIsNotMe: false },
       { message: "Thank you", senderIsNotMe: true },
-      
+
     ],
   ])
   const userNames = ["Jay Patel", "Denis Grigoryev"]
@@ -39,7 +39,7 @@ const Chat = () => {
           ...chat,
           { senderIsNotMe: true, message: responses[value] },
         ])
-      }, 1000)
+      }, 2000)
     }
     if(value.trim()!=='') {
       setChat([...chat, { message: value }])
@@ -80,7 +80,7 @@ const Chat = () => {
           </div>
         </NavLink>
         <div>
-                                   
+
         </div>
       </div>
       <div className="containerChat">
@@ -102,7 +102,7 @@ const Chat = () => {
         </div>
 
         <div className="main border border-dark">
-          
+
           <div className="mainTexts">
           {chat?.map(({ message, senderIsNotMe }, i) => (
             <p
