@@ -61,11 +61,21 @@ const Support = () => {
 }
 
 function buttonClick() {
-  history.push("/faq")
-  Swal.fire({
-    icon: "success",
-    text: "Success!",
-  })
+  var title = document.getElementById('floating-title').value.trim()
+  var description = document.getElementById('floating-multiline').value.trim()
+  if(title!=='' && description!=='') {
+    history.push("/faq")
+    Swal.fire({
+      icon: "success",
+      text: "Support Ticket has been successfully sent!",
+    })
+  } else {
+    Swal.fire({
+      icon: "warning",
+      text: "Please enter something in all fields!",
+    })
+  }
+  
 }
 
 export default Support

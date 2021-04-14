@@ -41,7 +41,6 @@ const Chat = () => {
         ])
       }, 1000)
     }
-    console.log(value.trim())
     if(value.trim()!=='') {
       setChat([...chat, { message: value }])
     }
