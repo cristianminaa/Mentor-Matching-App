@@ -41,7 +41,10 @@ const Chat = () => {
         ])
       }, 1000)
     }
-    setChat([...chat, { message: value }])
+    console.log(value.trim())
+    if(value.trim()!=='') {
+      setChat([...chat, { message: value }])
+    }
     setValue("")
   }
   useEffect(() => {

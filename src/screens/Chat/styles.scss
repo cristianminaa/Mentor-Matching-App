@@ -21,6 +21,7 @@
 }
 .conversationsMenuLeft {
   width: 18%; //19rem
+  min-width: 165px;
   height: 100%;
   background-color: rgb(209, 206, 206);
   // position: absolute;
@@ -49,6 +50,7 @@
   .mainTexts{
     overflow: scroll;
     height: 100%;
+    padding: 10px;
   }
   .message {
     font-size: 18px;
@@ -125,7 +127,8 @@ footer {
   height: 5rem;
   position: relative;
   border-radius: 10px;
-  margin-top: 8px;
+  // margin-top: 8px;
+  margin: 8px 7px 0 7px;
   transition: background-color 0.5s ease;
   img {
     height: 35%;
@@ -140,9 +143,10 @@ footer {
 }
 .containerConversation:hover {
   background-color: rgba(121, 121, 255, 0.3);
+  cursor: pointer;
 }
 .containerConversation.selected {
-  background-color: rgb(121, 121, 255);
+  background-color: rgba(121, 121, 255, 0.5);
 }
 .scrollableConversations {
   // overflow-y: scroll;
