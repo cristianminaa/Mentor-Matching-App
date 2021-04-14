@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 
 const Chat = () => {
   const responses = {
-    "Hello Jay": "Hi there",
+    "Hello John": "Hi there",
     "How about meeting today at 4pm?":"Yes, perfect",
   }
 
@@ -26,14 +26,14 @@ const Chat = () => {
 
     ],
   ])
-  const userNames = ["Jay Patel", "Denis Grigoryev"]
+  const userNames = ["John Smith", "Maria Heart"]
   const [value, setValue] = useState("")
   const [selectedConversation, setSelecetedConversation] = useState(0)
   const prevSelected = useRef(selectedConversation)
   const [chat, setChat] = useState([])
 
   const handleChat = () => {
-    if (Object.keys(responses).includes(value)) {
+    if (Object.keys(responses).includes(value.toLowerCase())) {
       setTimeout(() => {
         setChat((chat) => [
           ...chat,
