@@ -63,7 +63,7 @@ export const usersData = [
     position: "Student",
     location: "Romania",
     dateOfBirth: "",
-    roles: ["mentor"],
+    roles: ["mentor","mentee"],
     userType: "employee",
     exForces: true,
     mentees: 2,
