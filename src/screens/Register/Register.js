@@ -55,7 +55,7 @@ const Register = () => {
     if (!phoneNumber || !dateOfBirth) {
       Swal.fire({
         icon: "error",
-        title: "Please personal details",
+        title: "Please enter personal details",
         text: "Please enter phone number and date of birth",
       })
       return false
